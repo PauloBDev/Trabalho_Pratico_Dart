@@ -1,4 +1,4 @@
-import 'package:trabalho1/trabalho1.dart' as trabalho1;
+import 'package:trabalho1/question3lib.dart' as trabalho1;
 
 void main() {
   var sum = 0; // variavel para ser usada na soma dos números

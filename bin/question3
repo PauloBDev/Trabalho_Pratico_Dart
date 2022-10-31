@@ -1,11 +1,6 @@
 import 'dart:io';
 
 void main() {
-  final Seguradora primeiraseguradora = Seguradora(
-    nomeSeguradora: "nome seguradora",
-    muradaSeguradora: "murada seguradora",
-    anoDeOrigem: 2020,
-  );
   int N = 0;
   do {
     menu();
@@ -14,7 +9,6 @@ void main() {
     //case
     switch (N) {
       case 1:
-        print(primeiraseguradora.ano);
         break;
       case 2:
         break;
@@ -50,76 +44,4 @@ void menu() {
   print('7. Entity of each active policies, age and address.');
   print('8. Exit.');
   print("\n");
-}
-
-class Seguradora {
-  var ano;
-  Seguradora({
-    var nomeSeguradora,
-    var muradaSeguradora,
-    var anoDeOrigem,
-  }) : ano = DateTime.now().year - anoDeOrigem;
-}
-
-class TiposSeguros extends Seguradora {
-  var nomeseguro;
-  var tiposeguro;
-  var preco;
-  var valoranual;
-  Map<String, dynamic> get tiposegurosmap {
-    return {
-      "Nome:": nomeseguro,
-      "Tipo de Seguro:": tiposeguro,
-      "Preço:": preco,
-      "Valor Anual:": valoranual,
-    };
-  }
-}
-
-class Apolices extends TiposSeguros {
-  var nomeapolice;
-  var nascencapolice;
-  var duracao;
-  bool apoliceapolices = true;
-  Map<String, dynamic> get apolicesmap {
-    return {
-      "Nome:": nomeapolice,
-      "Data de começo:": nascencapolice,
-      "Duração da apolice:": duracao,
-      "Activa?": apoliceapolices,
-    };
-  }
-}
-
-class Tomador extends Seguradora {
-  var anotomador;
-  var nomeTomador;
-  var muradaTomador;
-  Tomador({
-    var nascencaTomador,
-  }) : anotomador = DateTime.now().year - nascencaTomador;
-  Map<String, dynamic> get tomadormap {
-    return {
-      "Nome:": nomeTomador,
-      "Murada:": muradaTomador,
-      "Idade:": anotomador,
-    };
-  }
-}
-
-class Segurado extends Tomador {
-  var anosegurado;
-  var nomesegurado;
-  var tiposegurado;
-  Segurado({
-    var nascencasegurado,
-  }) : anosegurado = DateTime.now().year - nascencasegurado;
-
-  Map<String, dynamic> get seguradomap {
-    return {
-      "Nome:": nomesegurado,
-      "Tipo:": tiposegurado,
-      "Idade:": anosegurado,
-    };
-  }
 }
