@@ -1,39 +1,66 @@
 import 'dart:io';
 
+import 'package:trabalho1/question3lib.dart';
+
 void main() {
   int N = 0;
   do {
+    //pushar o menu
     menu();
+    //ler o numero escolhido
     N = int.parse(stdin.readLineSync()!); // ler o número escrito
     print("\n");
     //case
     switch (N) {
+      //numero de apolices ativas
       case 1:
+        //print(creatingstuff.apolices.containsValue(true));
+        creatingstuff();
+
         break;
+
+      //numero de apolices e valor medio por seguradora
       case 2:
         break;
+
+      //numero de apolices e valor medio por seguro
       case 3:
         break;
+
+      // relatório de apolices ativas por
+      // tipo de seguro e seguradora
+      // valor de cada premio
       case 4:
         break;
+
+      //analise dos premios anuais das seguradoras
       case 5:
         break;
+
+      //somatório dos premios das apolices
       case 6:
         break;
+
+      //quem tem a apolices, nome, idade, murada
       case 7:
         break;
+
+      //exit
       case 8:
         print('                  Have a Good Day!');
         print("\n");
         break;
+      //escolha errada
       default:
         print('Invalid choise! Please try again.');
         break;
     }
+    //parar se for escolhido 8
   } while (N != 8);
 }
 
 void menu() {
+  //menu
   print("\n");
   print('1. Active and Innactive policies.');
   print('2. Average price of active poilicies by insurance.');
