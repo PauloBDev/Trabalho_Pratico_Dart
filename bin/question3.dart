@@ -1,9 +1,31 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:trabalho1/question3lib.dart';
 
 void main() {
   int N = 0;
+
+  seguradora primseguradora = seguradora();
+  primseguradora.nomeseguradora = "primseguradora";
+  primseguradora.muradaseguradora = "murada da primseguradora";
+  primseguradora.ano = 2022;
+
+  seguradora segseguradora = seguradora();
+  segseguradora.nomeseguradora = "segseguradora";
+  segseguradora.muradaseguradora = "murada da segseguradora";
+  segseguradora.ano = 2021;
+
+  Apolices primapolice = Apolices();
+  primapolice.nomeapolice = "primapolice";
+  primapolice.tipo = 1;
+  primapolice.activa = 1;
+
+  Apolices segapolice = Apolices();
+  segapolice.nomeapolice = "segapolice";
+  segapolice.tipo = 2;
+  segapolice.activa = 0;
+
   do {
     //pushar o menu
     menu();
@@ -14,9 +36,8 @@ void main() {
     switch (N) {
       //numero de apolices ativas
       case 1:
-        //print(creatingstuff.apolices.containsValue(true));
-        creatingstuff();
-
+        inspect(seguradora());
+        segapolice.displayapolice();
         break;
 
       //numero de apolices e valor medio por seguradora

@@ -1,135 +1,175 @@
 import 'dart:collection';
 
-void creatingstuff() {
-  final Map<int, Object> apolices = HashMap();
-  final primapolice = {
-    1: "apolice1",
-    2: 1900,
-    3: 50,
-    4: true,
-  };
+class seguradora {
+  String? _nomeseguradora;
+  String? _muradaseguradora;
+  int? _ano;
 
-  final segapolice = {
-    1: "apolice2",
-    2: 1950,
-    3: 100,
-    4: false,
-  };
+  String get nomeseguradora => this._nomeseguradora!;
+  String get muradaseguradora => this._muradaseguradora!;
+  int get ano => this._ano!;
 
-  apolices.addEntries(primapolice.entries);
-  apolices.addEntries(segapolice.entries);
-  print(apolices);
-  // if (apolices.containsValue(true)) {
-  //   print(primapolice);
-  // } else {
-  //   print(segapolice);
-  // }
+  set nomeseguradora(String nomeseguradora) =>
+      this._nomeseguradora = nomeseguradora;
+  set muradaseguradora(String muradaseguradora) =>
+      this._muradaseguradora = muradaseguradora;
+  set ano(int ano) => this._ano = ano;
+
+  void displayseguradora() {
+    print("Nome: $_nomeseguradora");
+    print("Murada: $_muradaseguradora");
+    print("Criada em: $_ano");
+  }
 }
 
-class Seguradora {
-  // int ano = 0;
-  // String nomeSeguradora = "";
-  // String muradaSeguradora = "";
-  // int anoDeOrigem = 0;
+class Apolices extends seguradora {
+  String? _nomeapolice;
+  int? _tipo;
+  int? _activa;
 
-  final Map<int, String> seguradora1 = HashMap();
-  final primseguradora = {
-    1: 2022,
-    2: 'Seguradora1',
-    3: 'murada da seguradora1',
-    4: 1994,
-  };
-  final Map<int, String> seguradora2 = HashMap();
-  final segseguradora = {
-    1: 2021,
-    2: 'Seguradora2',
-    3: 'murada da seguradora2',
-    4: 1998,
-  };
+  String get nomeapolice => this._nomeapolice!;
+  int get tipo => this._tipo!;
+  int get active => this._activa!;
+
+  set nomeapolice(String nomeapolice) => this._nomeapolice = nomeapolice;
+  set tipo(int tipo) => this._tipo = tipo;
+  set activa(int activa) => this._activa = activa;
+
+  void displayapolice() {
+    print("Nome: $_nomeapolice");
+    print("Tipo: $_tipo");
+  }
 }
+// void creatingstuff() {
+//   final Map<int, Object> apolices = HashMap();
+//   final primapolice = {
+//     1: "apolice1",
+//     2: 1900,
+//     3: 50,
+//     4: true,
+//   };
 
-class TiposSeguros extends Seguradora {
-  // String nomeseguro = "";
-  // String tiposeguro = "";
-  // double preco = 0;
-  // double valoranual = 0;
+//   final segapolice = {
+//     1: "apolice2",
+//     2: 1950,
+//     3: 100,
+//     4: false,
+//   };
 
-  final Map<int, String> seguro1 = HashMap();
-  final primseguro = {
-    1: "Vida Longa!",
-    2: "Vida",
-    3: 20000,
-    4: 2000,
-  };
+//   apolices.addEntries(primapolice.entries);
+//   apolices.addEntries(segapolice.entries);
+//   print(apolices);
+//   // if (apolices.containsValue(true)) {
+//   //   print(primapolice);
+//   // } else {
+//   //   print(segapolice);
+//   // }
+// }
 
-  final Map<int, String> seguro2 = HashMap();
-  final segseguro = {
-    1: "Carro Protegido!",
-    2: "carro",
-    3: 10000,
-    4: 1000,
-  };
-}
+// class Seguradora {
+//   // int ano = 0;
+//   // String nomeSeguradora = "";
+//   // String muradaSeguradora = "";
+//   // int anoDeOrigem = 0;
 
-class Apolices extends TiposSeguros {
-  // String nomeapolice = "";
-  // int nascencapolice = 0;
-  // double duracao = 0;
-  // bool apoliceapolices = true;
+//   final Map<int, String> seguradora1 = HashMap();
+//   final primseguradora = {
+//     1: 2022,
+//     2: 'Seguradora1',
+//     3: 'murada da seguradora1',
+//     4: 1994,
+//   };
+//   final Map<int, String> seguradora2 = HashMap();
+//   final segseguradora = {
+//     1: 2021,
+//     2: 'Seguradora2',
+//     3: 'murada da seguradora2',
+//     4: 1998,
+//   };
+// }
 
-  final Map<int, String> apolice1 = HashMap();
-  final primapolice = {
-    1: "apolice1",
-    2: 1900,
-    3: 50,
-    4: true,
-  };
+// class TiposSeguros extends Seguradora {
+//   // String nomeseguro = "";
+//   // String tiposeguro = "";
+//   // double preco = 0;
+//   // double valoranual = 0;
 
-  final Map<int, String> apolice2 = HashMap();
-  final segapolice = {
-    1: "apolice2",
-    2: 1950,
-    3: 100,
-    4: false,
-  };
-}
+//   final Map<int, String> seguro1 = HashMap();
+//   final primseguro = {
+//     1: "Vida Longa!",
+//     2: "Vida",
+//     3: 20000,
+//     4: 2000,
+//   };
 
-class Tomador extends Seguradora {
-  // int anotomador = 0;
-  // String nomeTomador = "";
-  // String muradaTomador = "";
+//   final Map<int, String> seguro2 = HashMap();
+//   final segseguro = {
+//     1: "Carro Protegido!",
+//     2: "carro",
+//     3: 10000,
+//     4: 1000,
+//   };
+// }
 
-  final Map<int, String> tomador1 = HashMap();
-  final primtomador = {
-    1: 1994,
-    2: "Paulo Bernardino",
-    3: "rua do Paulo",
-  };
+// class Apolices extends TiposSeguros {
+//   // String nomeapolice = "";
+//   // int nascencapolice = 0;
+//   // double duracao = 0;
+//   // bool apoliceapolices = true;
 
-  final Map<int, String> tomador2 = HashMap();
-  final segtomador = {
-    1: 1996,
-    2: "Alexandre Machado",
-    3: "rua do Alexandre",
-  };
-}
+//   final Map<int, String> apolice1 = HashMap();
+//   final primapolice = {
+//     1: "apolice1",
+//     2: 1900,
+//     3: 50,
+//     4: true,
+//   };
 
-class Segurado extends Tomador {
-  // int anosegurado = 0;
-  // String nomesegurado = "";
-  // String tiposegurado = "";
+//   final Map<int, String> apolice2 = HashMap();
+//   final segapolice = {
+//     1: "apolice2",
+//     2: 1950,
+//     3: 100,
+//     4: false,
+//   };
+// }
 
-  final Map<int, String> segurado1 = HashMap();
-  final primsegurado = {
-    1: 2000,
-    2: "Ford 2000",
-    3: "carro",
-  };
+// class Tomador extends Seguradora {
+//   // int anotomador = 0;
+//   // String nomeTomador = "";
+//   // String muradaTomador = "";
 
-  final Map<int, String> segurado2 = HashMap();
-  final segsegurado = {
-    1: 2010,
-    2: "Apartamento",
-    3: "casa",
-  };
-}
+//   final Map<int, String> tomador1 = HashMap();
+//   final primtomador = {
+//     1: 1994,
+//     2: "Paulo Bernardino",
+//     3: "rua do Paulo",
+//   };
+
+//   final Map<int, String> tomador2 = HashMap();
+//   final segtomador = {
+//     1: 1996,
+//     2: "Alexandre Machado",
+//     3: "rua do Alexandre",
+//   };
+// }
+
+// class Segurado extends Tomador {
+//   // int anosegurado = 0;
+//   // String nomesegurado = "";
+//   // String tiposegurado = "";
+
+//   final Map<int, String> segurado1 = HashMap();
+//   final primsegurado = {
+//     1: 2000,
+//     2: "Ford 2000",
+//     3: "carro",
+//   };
+
+//   final Map<int, String> segurado2 = HashMap();
+//   final segsegurado = {
+//     1: 2010,
+//     2: "Apartamento",
+//     3: "casa",
+//   };
+// }
