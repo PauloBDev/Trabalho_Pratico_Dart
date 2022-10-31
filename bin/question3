@@ -1,0 +1,125 @@
+import 'dart:io';
+
+void main() {
+  final Seguradora primeiraseguradora = Seguradora(
+    nomeSeguradora: "nome seguradora",
+    muradaSeguradora: "murada seguradora",
+    anoDeOrigem: 2020,
+  );
+  int N = 0;
+  do {
+    menu();
+    N = int.parse(stdin.readLineSync()!); // ler o número escrito
+    print("\n");
+    //case
+    switch (N) {
+      case 1:
+        print(primeiraseguradora.ano);
+        break;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+      case 6:
+        break;
+      case 7:
+        break;
+      case 8:
+        print('                  Have a Good Day!');
+        print("\n");
+        break;
+      default:
+        print('Invalid choise! Please try again.');
+        break;
+    }
+  } while (N != 8);
+}
+
+void menu() {
+  print("\n");
+  print('1. Active and Innactive policies.');
+  print('2. Average price of active poilicies by insurance.');
+  print('3. Average price of active policies by type of insurance');
+  print('4. Each value of policies for each insurance and type of.');
+  print('5. Analise of anual awards of insurance.');
+  print('6. Sum of each policies awards.');
+  print('7. Entity of each active policies, age and address.');
+  print('8. Exit.');
+  print("\n");
+}
+
+class Seguradora {
+  var ano;
+  Seguradora({
+    var nomeSeguradora,
+    var muradaSeguradora,
+    var anoDeOrigem,
+  }) : ano = DateTime.now().year - anoDeOrigem;
+}
+
+class TiposSeguros extends Seguradora {
+  var nomeseguro;
+  var tiposeguro;
+  var preco;
+  var valoranual;
+  Map<String, dynamic> get tiposegurosmap {
+    return {
+      "Nome:": nomeseguro,
+      "Tipo de Seguro:": tiposeguro,
+      "Preço:": preco,
+      "Valor Anual:": valoranual,
+    };
+  }
+}
+
+class Apolices extends TiposSeguros {
+  var nomeapolice;
+  var nascencapolice;
+  var duracao;
+  bool apoliceapolices = true;
+  Map<String, dynamic> get apolicesmap {
+    return {
+      "Nome:": nomeapolice,
+      "Data de começo:": nascencapolice,
+      "Duração da apolice:": duracao,
+      "Activa?": apoliceapolices,
+    };
+  }
+}
+
+class Tomador extends Seguradora {
+  var anotomador;
+  var nomeTomador;
+  var muradaTomador;
+  Tomador({
+    var nascencaTomador,
+  }) : anotomador = DateTime.now().year - nascencaTomador;
+  Map<String, dynamic> get tomadormap {
+    return {
+      "Nome:": nomeTomador,
+      "Murada:": muradaTomador,
+      "Idade:": anotomador,
+    };
+  }
+}
+
+class Segurado extends Tomador {
+  var anosegurado;
+  var nomesegurado;
+  var tiposegurado;
+  Segurado({
+    var nascencasegurado,
+  }) : anosegurado = DateTime.now().year - nascencasegurado;
+
+  Map<String, dynamic> get seguradomap {
+    return {
+      "Nome:": nomesegurado,
+      "Tipo:": tiposegurado,
+      "Idade:": anosegurado,
+    };
+  }
+}
