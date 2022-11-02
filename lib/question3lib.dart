@@ -1,24 +1,20 @@
 import 'dart:collection';
 
 class seguradora {
-  String? _nomeseguradora;
-  String? _muradaseguradora;
-  int? _ano;
+  String? nomeseguradora;
+  String? muradaseguradora;
+  int? ano;
 
-  String get nomeseguradora => this._nomeseguradora!;
-  String get muradaseguradora => this._muradaseguradora!;
-  int get ano => this._ano!;
+  seguradora({this.nomeseguradora, this.muradaseguradora, this.ano});
 
-  set nomeseguradora(String nomeseguradora) =>
-      this._nomeseguradora = nomeseguradora;
-  set muradaseguradora(String muradaseguradora) =>
-      this._muradaseguradora = muradaseguradora;
-  set ano(int ano) => this._ano = ano;
-
-  void displayseguradora() {
-    print("Nome: $_nomeseguradora");
-    print("Murada: $_muradaseguradora");
-    print("Criada em: $_ano");
+  @override
+  String toString() {
+    return '''\n
+    Apolice: 
+      Nome: $nomeseguradora
+      Murada: $muradaseguradora 
+      Criada em: $ano\n
+  ''';
   }
 }
 
@@ -38,12 +34,13 @@ class Apolices extends seguradora {
 
   @override
   String toString() {
-    return '''
-  Apolice: 
-    Nome: $nomeapolice
-    Tipo: $tipo 
-    Valor Prémio: $valorpremio
-    Duração: $duracao ano(s)
+    return '''\n
+    Apolice: 
+      Seguradora: $nomeseguradora
+      Nome: $nomeapolice
+      Tipo: $tipo 
+      Valor Prémio: $valorpremio
+      Duração: $duracao ano(s)\n
   ''';
   }
   // @override

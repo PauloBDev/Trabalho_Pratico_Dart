@@ -5,35 +5,44 @@ import 'package:trabalho1/question3lib.dart';
 
 void main() {
   int N = 0;
+  List seguradoras = [];
+  seguradoras.add(seguradora(
+      nomeseguradora: "Seguradora A",
+      muradaseguradora: "Seguradora A murada",
+      ano: 1990));
+  seguradoras.add(seguradora(
+      nomeseguradora: "Seguradora B",
+      muradaseguradora: "Seguradora B murada",
+      ano: 1990));
 
-  // List tentativa = [];
-  // tentativa.add(Apolices(
-  //     nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1));
-  // tentativa.add(Apolices(
-  //     nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 1));
-  // tentativa.add(Apolices(
-  //     nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1));
-  // tentativa.add(Apolices(
-  //     nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 1));
-  // tentativa.add(Apolices(
-  //     nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1));
-  // tentativa.add(Apolices(
-  //     nomeapolice: "F", tipo: "10", valorpremio: 105, duracao: 6, active: 0));
+  List apolices = [];
+  apolices.add(Apolices(
+      nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1));
+  apolices.add(Apolices(
+      nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 1));
+  apolices.add(Apolices(
+      nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1));
+  apolices.add(Apolices(
+      nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 1));
+  apolices.add(Apolices(
+      nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1));
+  apolices.add(Apolices(
+      nomeapolice: "F", tipo: "10", valorpremio: 105, duracao: 6, active: 0));
 
-  List<Apolices> apolices = [
-    Apolices(
-        nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1),
-    Apolices(
-        nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 1),
-    Apolices(
-        nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1),
-    Apolices(
-        nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 1),
-    Apolices(
-        nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1),
-    Apolices(
-        nomeapolice: "F", tipo: "10", valorpremio: 105, duracao: 6, active: 0)
-  ];
+  // List<Apolices> apolices = [
+  //   Apolices(
+  //       nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1),
+  //   Apolices(
+  //       nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 1),
+  //   Apolices(
+  //       nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1),
+  //   Apolices(
+  //       nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 1),
+  //   Apolices(
+  //       nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1),
+  //   Apolices(
+  //       nomeapolice: "F", tipo: "10", valorpremio: 105, duracao: 6, active: 0)
+  // ];
   // seguradora primseguradora = seguradora();
   // primseguradora.nomeseguradora = "primseguradora";
   // primseguradora.muradaseguradora = "murada da primseguradora";
@@ -44,26 +53,31 @@ void main() {
   // segseguradora.muradaseguradora = "murada da segseguradora";
   // segseguradora.ano = 2021;
 
-  Apolices primapolice = Apolices();
-  primapolice.nomeapolice = "primapolice";
-  primapolice.tipo = "Apolice aberta";
-  primapolice.valorpremio = 15670;
-  primapolice.duracao = 10;
-  primapolice.active = 1;
+  // Apolices primapolice = Apolices();
+  // primapolice.nomeapolice = "primapolice";
+  // primapolice.tipo = "Apolice aberta";
+  // primapolice.valorpremio = 15670;
+  // primapolice.duracao = 10;
+  // primapolice.active = 1;
 
-  Apolices segapolice = Apolices();
-  segapolice.nomeapolice = "segapolice";
-  segapolice.tipo = "Apolice fechada";
-  segapolice.valorpremio = 12908;
-  segapolice.duracao = 5;
-  segapolice.active = 0;
+  // Apolices segapolice = Apolices();
+  // segapolice.nomeapolice = "segapolice";
+  // segapolice.tipo = "Apolice fechada";
+  // segapolice.valorpremio = 12908;
+  // segapolice.duracao = 5;
+  // segapolice.active = 0;
 
-  Apolices terapolice = Apolices();
-  terapolice.nomeapolice = "terapolice";
-  terapolice.tipo = "Apolice recibo";
-  terapolice.valorpremio = 19009;
-  terapolice.duracao = 2;
-  terapolice.active = 1;
+  // Apolices terapolice = Apolices();
+  // terapolice.nomeapolice = "terapolice";
+  // terapolice.tipo = "Apolice recibo";
+  // terapolice.valorpremio = 19009;
+  // terapolice.duracao = 2;
+  // terapolice.active = 1;
+
+  // List apolices = [];
+  // apolices.add(primapolice);
+  // apolices.add(segapolice);
+  // apolices.add(terapolice);
 
   do {
     //pushar o menu
@@ -77,13 +91,13 @@ void main() {
       case 1:
         print("Activas: ");
         for (int i = 0; i < apolices.length; i++) {
-          if (apolices.any((active) => active == 1)) {
+          if (apolices[i].active == 1) {
             print('${apolices[i].toString()}\n');
           }
         }
         print("Inativas: ");
         for (int i = 0; i < apolices.length; i++) {
-          if (apolices.any((active) => active == 0)) {
+          if (apolices[i].active == 0) {
             print('${apolices[i].toString()}\n');
           }
         }
@@ -131,14 +145,12 @@ void main() {
 
 void menu() {
   //menu
-  print("\n");
-  print('1. Active and Innactive policies.');
+  print('\n1. Active and Innactive policies.');
   print('2. Average price of active poilicies by insurance.');
   print('3. Average price of active policies by type of insurance');
   print('4. Each value of policies for each insurance and type of.');
   print('5. Analise of anual awards of insurance.');
   print('6. Sum of each policies awards.');
   print('7. Entity of each active policies, age and address.');
-  print('8. Exit.');
-  print("\n");
+  print('8. Exit.\n');
 }
