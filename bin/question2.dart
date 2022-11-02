@@ -7,7 +7,6 @@ void main() {
   int amount = Random().nextInt(60) + 90; // número random de random números
   List list = []; // lista dos números todos
   List odd = []; // lista dos números impares
-  int check = 0; // verificação
   for (int i = 0; i < amount; i++) {
     //para cada lugar na lista criar um número random
     list.add(Random().nextInt(4294967296) + 1);
@@ -42,7 +41,9 @@ void main() {
           }
         }
         odd.sort((b, a) => a.compareTo(b)); // organizar por decrescente
-        print(odd);
+        for (int i in odd) {
+          print(i);
+        }
         break;
       case 4: // ver tudo
         for (int i in list) {

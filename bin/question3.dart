@@ -62,8 +62,11 @@ void main() {
       //numero de apolices ativas e inativas
       case 1:
         print("Activas: ");
+        apolices.asMap().forEach((key, value) {
+          
+         })
         for (int i = 0; i < apolices.length; i++) {
-          if (apolices.any((active) => active == 1)) {
+          if (apolices.contains(active) == 1)) {
             print('${apolices[i].toString()}\n');
           }
         }
