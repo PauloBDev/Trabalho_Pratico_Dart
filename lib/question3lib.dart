@@ -35,24 +35,32 @@ class Apolices extends seguradora {
       this.valorpremio,
       this.duracao,
       this.active});
+
   @override
   String toString() {
-    return 'Apolice: Nome: $nomeapolice\n Tipo: $tipo\n Valor Prémio: $valorpremio\n Duração: $duracao\n';
-    // @override
-    // bool operator ==(dynamic other) {
-    //   if (other is Apolices) {
-    //     return other.nomeapolice == nomeapolice &&
-    //         other.tipo == tipo &&
-    //         other.valorpremio == valorpremio &&
-    //         other.duracao == duracao &&
-    //         other.active == active;
-    //   }
-    //   return false;
-    // }
-
-    // @override
-    // int get hashCode => hash2(nomeapolice, tipo, valorpremio, duracao);
+    return '''
+  Apolice: 
+    Nome: $nomeapolice
+    Tipo: $tipo 
+    Valor Prémio: $valorpremio
+    Duração: $duracao ano(s)
+  ''';
   }
+  // @override
+  // bool operator ==(dynamic other) {
+  //   if (other is Apolices) {
+  //     return other.nomeapolice == nomeapolice &&
+  //         other.tipo == tipo &&
+  //         other.valorpremio == valorpremio &&
+  //         other.duracao == duracao &&
+  //         other.active == active;
+  //   }
+  //   return false;
+  // }
+
+  // @override
+  // int get hashCode => hash2(nomeapolice, tipo, valorpremio, duracao);
+
 }
 
   // String? _nomeapolice;
