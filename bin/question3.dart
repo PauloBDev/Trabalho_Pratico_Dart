@@ -59,19 +59,19 @@ void main() {
     print("\n");
     //case
     switch (N) {
-      //numero de apolices ativas
+      //numero de apolices ativas e inativas
       case 1:
         print("Activas: ");
         for (int i = 0; i < apolices.length; i++) {
-          (apolices) => apolices.active == 1;
-          print(apolices[i].toString());
-          print('\n');
+          if (apolices.any((active) => active == 1)) {
+            print('${apolices[i].toString()}\n');
+          }
         }
         print("Inativas: ");
         for (int i = 0; i < apolices.length; i++) {
-          (apolices) => apolices.active == 0;
-          print(apolices[i].toString());
-          print('\n');
+          if (apolices.any((active) => active == 0)) {
+            print('${apolices[i].toString()}\n');
+          }
         }
         break;
 
