@@ -10,11 +10,11 @@ void main() {
     Apolices(
         nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1),
     Apolices(
-        nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 0),
+        nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 1),
     Apolices(
         nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1),
     Apolices(
-        nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 0),
+        nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 1),
     Apolices(
         nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1),
     Apolices(
@@ -30,26 +30,26 @@ void main() {
   // segseguradora.muradaseguradora = "murada da segseguradora";
   // segseguradora.ano = 2021;
 
-  // Apolices primapolice = Apolices();
-  // primapolice.nomeapolice = "primapolice";
-  // primapolice.tipo = "Apolice aberta";
-  // primapolice.valorpremio = 15670;
-  // primapolice.duracao = 10;
-  // primapolice.active = 1;
+  Apolices primapolice = Apolices();
+  primapolice.nomeapolice = "primapolice";
+  primapolice.tipo = "Apolice aberta";
+  primapolice.valorpremio = 15670;
+  primapolice.duracao = 10;
+  primapolice.active = 1;
 
-  // Apolices segapolice = Apolices();
-  // segapolice.nomeapolice = "segapolice";
-  // segapolice.tipo = "Apolice fechada";
-  // segapolice.valorpremio = 12908;
-  // segapolice.duracao = 5;
-  // segapolice.active = 0;
+  Apolices segapolice = Apolices();
+  segapolice.nomeapolice = "segapolice";
+  segapolice.tipo = "Apolice fechada";
+  segapolice.valorpremio = 12908;
+  segapolice.duracao = 5;
+  segapolice.active = 0;
 
-  // Apolices terapolice = Apolices();
-  // terapolice.nomeapolice = "terapolice";
-  // terapolice.tipo = "Apolice recibo";
-  // terapolice.valorpremio = 19009;
-  // terapolice.duracao = 2;
-  // terapolice.active = 1;
+  Apolices terapolice = Apolices();
+  terapolice.nomeapolice = "terapolice";
+  terapolice.tipo = "Apolice recibo";
+  terapolice.valorpremio = 19009;
+  terapolice.duracao = 2;
+  terapolice.active = 1;
 
   do {
     //pushar o menu
@@ -62,11 +62,17 @@ void main() {
       //numero de apolices ativas
       case 1:
         print("Activas: ");
-        print(apolices.indexOf(Apolices(active: 1)));
-        print('\n');
-
+        for (int i = 0; i < apolices.length; i++) {
+          (apolices) => apolices.active == 1;
+          print(apolices[i].toString());
+          print('\n');
+        }
         print("Inativas: ");
-        print(apolices.indexOf(Apolices(active: 0)));
+        for (int i = 0; i < apolices.length; i++) {
+          (apolices) => apolices.active == 0;
+          print(apolices[i].toString());
+          print('\n');
+        }
         break;
 
       //numero de apolices e valor medio por seguradora
