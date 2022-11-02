@@ -6,25 +6,50 @@ import 'package:trabalho1/question3lib.dart';
 void main() {
   int N = 0;
 
-  seguradora primseguradora = seguradora();
-  primseguradora.nomeseguradora = "primseguradora";
-  primseguradora.muradaseguradora = "murada da primseguradora";
-  primseguradora.ano = 2022;
+  List<Apolices> apolices = [
+    Apolices(
+        nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1),
+    Apolices(
+        nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 0),
+    Apolices(
+        nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1),
+    Apolices(
+        nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 0),
+    Apolices(
+        nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1),
+    Apolices(
+        nomeapolice: "F", tipo: "10", valorpremio: 105, duracao: 6, active: 0)
+  ];
+  // seguradora primseguradora = seguradora();
+  // primseguradora.nomeseguradora = "primseguradora";
+  // primseguradora.muradaseguradora = "murada da primseguradora";
+  // primseguradora.ano = 2022;
 
-  seguradora segseguradora = seguradora();
-  segseguradora.nomeseguradora = "segseguradora";
-  segseguradora.muradaseguradora = "murada da segseguradora";
-  segseguradora.ano = 2021;
+  // seguradora segseguradora = seguradora();
+  // segseguradora.nomeseguradora = "segseguradora";
+  // segseguradora.muradaseguradora = "murada da segseguradora";
+  // segseguradora.ano = 2021;
 
-  Apolices primapolice = Apolices();
-  primapolice.nomeapolice = "primapolice";
-  primapolice.tipo = 1;
-  primapolice.activa = 1;
+  // Apolices primapolice = Apolices();
+  // primapolice.nomeapolice = "primapolice";
+  // primapolice.tipo = "Apolice aberta";
+  // primapolice.valorpremio = 15670;
+  // primapolice.duracao = 10;
+  // primapolice.active = 1;
 
-  Apolices segapolice = Apolices();
-  segapolice.nomeapolice = "segapolice";
-  segapolice.tipo = 2;
-  segapolice.activa = 0;
+  // Apolices segapolice = Apolices();
+  // segapolice.nomeapolice = "segapolice";
+  // segapolice.tipo = "Apolice fechada";
+  // segapolice.valorpremio = 12908;
+  // segapolice.duracao = 5;
+  // segapolice.active = 0;
+
+  // Apolices terapolice = Apolices();
+  // terapolice.nomeapolice = "terapolice";
+  // terapolice.tipo = "Apolice recibo";
+  // terapolice.valorpremio = 19009;
+  // terapolice.duracao = 2;
+  // terapolice.active = 1;
 
   do {
     //pushar o menu
@@ -36,8 +61,12 @@ void main() {
     switch (N) {
       //numero de apolices ativas
       case 1:
-        inspect(seguradora());
-        segapolice.displayapolice();
+        print("Activas: ");
+        print(apolices.indexOf(Apolices(active: 1)));
+        print('\n');
+
+        print("Inativas: ");
+        print(apolices.indexOf(Apolices(active: 0)));
         break;
 
       //numero de apolices e valor medio por seguradora

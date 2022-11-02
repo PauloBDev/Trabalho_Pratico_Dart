@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'package:quiver/core.dart';
 
 class seguradora {
   String? _nomeseguradora;
@@ -23,23 +24,59 @@ class seguradora {
 }
 
 class Apolices extends seguradora {
-  String? _nomeapolice;
-  int? _tipo;
-  int? _activa;
+  String? nomeapolice;
+  String? tipo;
+  int? valorpremio;
+  int? duracao;
+  int? active;
 
-  String get nomeapolice => this._nomeapolice!;
-  int get tipo => this._tipo!;
-  int get active => this._activa!;
-
-  set nomeapolice(String nomeapolice) => this._nomeapolice = nomeapolice;
-  set tipo(int tipo) => this._tipo = tipo;
-  set activa(int activa) => this._activa = activa;
-
-  void displayapolice() {
-    print("Nome: $_nomeapolice");
-    print("Tipo: $_tipo");
+  Apolices(
+      {this.nomeapolice,
+      this.tipo,
+      this.valorpremio,
+      this.duracao,
+      this.active});
+  @override
+  bool operator ==(dynamic other) {
+    if (other is Apolices) {
+      return other.nomeapolice == nomeapolice &&
+          other.tipo == tipo &&
+          other.valorpremio == valorpremio &&
+          other.duracao == duracao &&
+          other.active == active;
+    }
+    return false;
   }
+
+  @override
+  int get hashCode => hash2(nomeapolice, tipo, valorpremio, duracao);
 }
+
+  // String? _nomeapolice;
+  // String? _tipo;
+  // int? _valorpremio;
+  // int? _duracao;
+  // int? _active;
+
+  // String get nomeapolice => this._nomeapolice!;
+  // String get tipo => this._tipo!;
+  // int get valorpremio => this._valorpremio!;
+  // int get duracao => this._duracao!;
+  // int get active => this._active!;
+
+  // set nomeapolice(String nomeapolice) => this._nomeapolice = nomeapolice;
+  // set tipo(String tipo) => this._tipo = tipo;
+  // set valorpremio(int valorpremio) => this._valorpremio = valorpremio;
+  // set duracao(int duracao) => this._duracao = duracao;
+  // set active(int active) => this._active = active;
+
+  // void displayapolice() {
+  //   print("Nome: $_nomeapolice");
+  //   print("Tipo: $_tipo");
+  //   print("Valor prémio: $_valorpremio");
+  //   print("Duração de: $duracao anos");
+  //}
+//}
 // void creatingstuff() {
 //   final Map<int, Object> apolices = HashMap();
 //   final primapolice = {
