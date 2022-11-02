@@ -7,13 +7,9 @@ void main() {
   int N = 0;
   List seguradoras = [];
   seguradoras.add(seguradora(
-      nomeseguradora: "Seguradora A",
-      muradaseguradora: "Seguradora A murada",
-      ano: 1990));
+      nomeseguradora: "A", muradaseguradora: "Seguradora A murada", ano: 1990));
   seguradoras.add(seguradora(
-      nomeseguradora: "Seguradora B",
-      muradaseguradora: "Seguradora B murada",
-      ano: 1990));
+      nomeseguradora: "B", muradaseguradora: "Seguradora B murada", ano: 1990));
 
   List apolices = [];
   apolices.add(Apolices(
