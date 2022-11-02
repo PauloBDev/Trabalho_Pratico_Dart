@@ -1,5 +1,4 @@
 import 'dart:collection';
-import 'package:quiver/core.dart';
 
 class seguradora {
   String? _nomeseguradora;
@@ -37,19 +36,23 @@ class Apolices extends seguradora {
       this.duracao,
       this.active});
   @override
-  bool operator ==(dynamic other) {
-    if (other is Apolices) {
-      return other.nomeapolice == nomeapolice &&
-          other.tipo == tipo &&
-          other.valorpremio == valorpremio &&
-          other.duracao == duracao &&
-          other.active == active;
-    }
-    return false;
-  }
+  String toString() {
+    return 'Apolice: Nome: $nomeapolice\n Tipo: $tipo\n Valor Prémio: $valorpremio\n Duração: $duracao\n';
+    // @override
+    // bool operator ==(dynamic other) {
+    //   if (other is Apolices) {
+    //     return other.nomeapolice == nomeapolice &&
+    //         other.tipo == tipo &&
+    //         other.valorpremio == valorpremio &&
+    //         other.duracao == duracao &&
+    //         other.active == active;
+    //   }
+    //   return false;
+    // }
 
-  @override
-  int get hashCode => hash2(nomeapolice, tipo, valorpremio, duracao);
+    // @override
+    // int get hashCode => hash2(nomeapolice, tipo, valorpremio, duracao);
+  }
 }
 
   // String? _nomeapolice;
