@@ -26,35 +26,35 @@ void main() {
   apolices.add(Apolices(
       nomeseguradora: 'A',
       nomeapolice: "B",
-      tipo: "10",
+      tipo: "20",
       valorpremio: 101,
       duracao: 2,
       active: 1));
   apolices.add(Apolices(
       nomeseguradora: 'B',
       nomeapolice: "C",
-      tipo: "10",
+      tipo: "30",
       valorpremio: 102,
       duracao: 3,
       active: 1));
   apolices.add(Apolices(
       nomeseguradora: 'A',
       nomeapolice: "D",
-      tipo: "10",
+      tipo: "40",
       valorpremio: 103,
       duracao: 4,
       active: 1));
   apolices.add(Apolices(
       nomeseguradora: 'A',
       nomeapolice: "E",
-      tipo: "10",
+      tipo: "50",
       valorpremio: 104,
       duracao: 5,
       active: 1));
   apolices.add(Apolices(
       nomeseguradora: 'B',
       nomeapolice: "F",
-      tipo: "10",
+      tipo: "60",
       valorpremio: 105,
       duracao: 6,
       active: 0));
@@ -62,8 +62,9 @@ void main() {
   List tomadores = [];
   tomadores.add(Tomador(
       nomeseguradora: 'A',
-      nomeapolice: 'A',
+      nomeapolice: 'B',
       valorpremio: 1000,
+      active: 0,
       nometomador: 'Tomador A',
       muradatomador: 'Murada Tomador A',
       idade: 1));
@@ -71,6 +72,7 @@ void main() {
       nomeseguradora: 'A',
       nomeapolice: 'B',
       valorpremio: 2000,
+      active: 1,
       nometomador: 'Tomador B',
       muradatomador: 'Murada Tomador B',
       idade: 2));
@@ -78,6 +80,7 @@ void main() {
       nomeseguradora: 'A',
       nomeapolice: 'C',
       valorpremio: 3000,
+      active: 1,
       nometomador: 'Tomador C',
       muradatomador: 'Murada Tomador C',
       idade: 3));
@@ -85,6 +88,7 @@ void main() {
       nomeseguradora: 'B',
       nomeapolice: 'D',
       valorpremio: 4000,
+      active: 1,
       nometomador: 'Tomador D',
       muradatomador: 'Murada Tomador D',
       idade: 4));
@@ -92,6 +96,7 @@ void main() {
       nomeseguradora: 'B',
       nomeapolice: 'E',
       valorpremio: 5000,
+      active: 1,
       nometomador: 'Tomador E',
       muradatomador: 'Murada Tomador E',
       idade: 5));
@@ -99,6 +104,7 @@ void main() {
       nomeseguradora: 'B',
       nomeapolice: 'F',
       valorpremio: 3000,
+      active: 1,
       nometomador: 'Tomador F',
       muradatomador: 'Murada Tomador F',
       idade: 20));
@@ -108,6 +114,7 @@ void main() {
     nomeseguradora: 'A',
     nomeapolice: 'A',
     nomeseguro: 'A',
+    active: 1,
     tiposeguro: 1,
     preco: 10000,
     valoranual: 10,
@@ -116,6 +123,7 @@ void main() {
     nomeseguradora: 'A',
     nomeapolice: 'B',
     nomeseguro: 'B',
+    active: 1,
     tiposeguro: 2,
     preco: 20000,
     valoranual: 20,
@@ -124,6 +132,7 @@ void main() {
     nomeseguradora: 'A',
     nomeapolice: 'C',
     nomeseguro: 'C',
+    active: 1,
     tiposeguro: 3,
     preco: 30000,
     valoranual: 30,
@@ -132,6 +141,7 @@ void main() {
     nomeseguradora: 'B',
     nomeapolice: 'D',
     nomeseguro: 'D',
+    active: 1,
     tiposeguro: 4,
     preco: 40000,
     valoranual: 40,
@@ -140,6 +150,7 @@ void main() {
     nomeseguradora: 'B',
     nomeapolice: 'E',
     nomeseguro: 'E',
+    active: 1,
     tiposeguro: 5,
     preco: 50000,
     valoranual: 50,
@@ -148,6 +159,7 @@ void main() {
     nomeseguradora: 'B',
     nomeapolice: 'E',
     nomeseguro: 'E',
+    active: 0,
     tiposeguro: 6,
     preco: 60000,
     valoranual: 60,
@@ -221,24 +233,56 @@ void main() {
         }
         double A = sum / counter;
         for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].nomeseguradora == 'B') {
+          if (apolices[i].nomeseguradora == 'B' && apolices[i].active == 1) {
             sum += apolices[i].valorpremio;
             counter++;
           }
         }
         double B = sum / counter;
-        print('A seguradora A tem o valor de: $A');
-        print('A seguradora B tem o valor de: $B');
+        print('A seguradora A tem o valor médio de: $A');
+        print('A seguradora B tem o valor médio de: $B');
         break;
 
       //numero de apolices e valor medio por seguro
       case 3:
+        double sum = 0;
+        int counter = 0;
+        for (int i = 0; i < tiposeguros.length; i++) {
+          if (apolices[i].active == 1) {
+            sum += tiposeguros[i].preco;
+            counter++;
+          }
+        }
+        double total = sum / counter;
+        print('O valor médio dos seguros é: $total€');
         break;
 
       // relatório de apolices ativas por
       // tipo de seguro e seguradora
       // valor de cada premio
       case 4:
+        for (int j = 0; j < seguradoras.length; j++) {
+          print(
+              'A seguradora ${seguradoras[j].nomeseguradora} tem as apólices:');
+          for (int i = 0; i < apolices.length; i++) {
+            if (apolices[i].nomeseguradora == 'A' &&
+                seguradoras[j].nomeseguradora == apolices[i].nomeseguradora &&
+                apolices[i].active == 1) {
+              print('''
+            Nome: ${apolices[i].nomeapolice}
+            Tipo: ${apolices[i].tipo}\n''');
+            }
+          }
+          for (int i = 0; i < apolices.length; i++) {
+            if (apolices[i].nomeseguradora == 'B' &&
+                seguradoras[j].nomeseguradora == apolices[i].nomeseguradora &&
+                apolices[i].active == 1) {
+              print('''
+            Nome: ${apolices[i].nomeapolice}
+            Tipo: ${apolices[i].tipo}\n''');
+            }
+          }
+        }
         break;
 
       //analise dos premios anuais das seguradoras
@@ -251,6 +295,57 @@ void main() {
 
       //quem tem a apolices, nome, idade, murada
       case 7:
+        for (int j = 0; j < apolices.length; j++) {
+          print('A apolice ${apolices[j].nomeapolice} tem os tomadores:');
+          for (int i = 0; i < tomadores.length; i++) {
+            if (tomadores[i].nomeapolice == 'A' && tomadores[i].active == 1) {
+              print('''
+          Nome: ${tomadores[i].nometomador}
+            Murada: ${tomadores[i].muradatomador}
+            Idade: ${tomadores[i].idade}\n''');
+            }
+          }
+          for (int i = 0; i < tomadores.length; i++) {
+            if (tomadores[i].nomeapolice == 'B' && tomadores[i].active == 1) {
+              print('''
+            Nome: ${tomadores[i].nometomador}
+            Murada: ${tomadores[i].muradatomador}
+            Idade: ${tomadores[i].idade}\n''');
+            }
+          }
+          for (int i = 0; i < tomadores.length; i++) {
+            if (tomadores[i].nomeapolice == 'C' && tomadores[i].active == 1) {
+              print('''
+            Nome: ${tomadores[i].nometomador}
+            Murada: ${tomadores[i].muradatomador}
+            Idade: ${tomadores[i].idade}\n''');
+            }
+          }
+          for (int i = 0; i < tomadores.length; i++) {
+            if (tomadores[i].nomeapolice == 'D' && tomadores[i].active == 1) {
+              print('''
+            Nome: ${tomadores[i].nometomador}
+            Murada: ${tomadores[i].muradatomador}
+            Idade: ${tomadores[i].idade}\n''');
+            }
+          }
+          for (int i = 0; i < tomadores.length; i++) {
+            if (tomadores[i].nomeapolice == 'E' && tomadores[i].active == 1) {
+              print('''
+            Nome: ${tomadores[i].nometomador}
+            Murada: ${tomadores[i].muradatomador}
+            Idade: ${tomadores[i].idade}\n''');
+            }
+          }
+          for (int i = 0; i < tomadores.length; i++) {
+            if (tomadores[i].nomeapolice == 'F' && tomadores[i].active == 1) {
+              print('''
+            Nome: ${tomadores[i].nometomador}
+            Murada: ${tomadores[i].muradatomador}
+            Idade: ${tomadores[i].idade}\n''');
+            }
+          }
+        }
         break;
 
       //exit
@@ -269,6 +364,7 @@ void main() {
 
 void menu() {
   //menu
+  print('-------------------Surpresas Existem!----------------------- ');
   print('\n1. Active and Innactive policies.');
   print('2. Average price of active poilicies by insurance.');
   print('3. Average price of active policies by type of insurance');
