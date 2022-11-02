@@ -6,6 +6,20 @@ import 'package:trabalho1/question3lib.dart';
 void main() {
   int N = 0;
 
+  // List tentativa = [];
+  // tentativa.add(Apolices(
+  //     nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1));
+  // tentativa.add(Apolices(
+  //     nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 1));
+  // tentativa.add(Apolices(
+  //     nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1));
+  // tentativa.add(Apolices(
+  //     nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 1));
+  // tentativa.add(Apolices(
+  //     nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1));
+  // tentativa.add(Apolices(
+  //     nomeapolice: "F", tipo: "10", valorpremio: 105, duracao: 6, active: 0));
+
   List<Apolices> apolices = [
     Apolices(
         nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1),
@@ -62,11 +76,8 @@ void main() {
       //numero de apolices ativas e inativas
       case 1:
         print("Activas: ");
-        apolices.asMap().forEach((key, value) {
-          
-         })
         for (int i = 0; i < apolices.length; i++) {
-          if (apolices.contains(active) == 1)) {
+          if (apolices.any((active) => active == 1)) {
             print('${apolices[i].toString()}\n');
           }
         }
