@@ -26,11 +26,13 @@ class Apolices extends seguradora {
   int? active;
 
   Apolices(
-      {this.nomeapolice,
+      {nomeseguradora,
+      this.nomeapolice,
       this.tipo,
       this.valorpremio,
       this.duracao,
-      this.active});
+      this.active})
+      : super(nomeseguradora: nomeseguradora);
 
   @override
   String toString() {
@@ -40,26 +42,83 @@ class Apolices extends seguradora {
       Nome: $nomeapolice
       Tipo: $tipo 
       Valor Prémio: $valorpremio
-      Duração: $duracao ano(s)\n
-  ''';
+      Duração: $duracao ano(s)''';
   }
-  // @override
-  // bool operator ==(dynamic other) {
-  //   if (other is Apolices) {
-  //     return other.nomeapolice == nomeapolice &&
-  //         other.tipo == tipo &&
-  //         other.valorpremio == valorpremio &&
-  //         other.duracao == duracao &&
-  //         other.active == active;
-  //   }
-  //   return false;
-  // }
-
-  // @override
-  // int get hashCode => hash2(nomeapolice, tipo, valorpremio, duracao);
-
 }
 
+class Tomador extends Apolices {
+  String? nometomador;
+  String? muradatomador;
+  int? idade;
+
+  Tomador({
+    nomeseguradora,
+    nomeapolice,
+    valorpremio,
+    this.nometomador,
+    this.muradatomador,
+    this.idade,
+  }) : super(
+            nomeseguradora: nomeseguradora,
+            nomeapolice: nomeapolice,
+            valorpremio: valorpremio);
+  @override
+  String toString() {
+    return '''\n
+    Apolice: 
+      Seguradora: $nomeseguradora
+      Apólice: $nomeapolice
+      Nome: $nometomador
+      Murada: $muradatomador 
+      Idade: $idade''';
+  }
+}
+
+class Segurado extends Tomador {
+  String? nomesegurado;
+  int? tiposegurado;
+
+  Segurado({
+    nometomador,
+    this.nomesegurado,
+    this.tiposegurado,
+  }) : super(nometomador: nometomador);
+  @override
+  String toString() {
+    return '''\n
+    Apolice: 
+      Tomador: $nometomador
+      Tipo de Segurado: $tiposegurado
+      Nome do Segurado: $nomesegurado''';
+  }
+}
+
+class TipoDeSeguro extends Apolices {
+  String? nomeseguro;
+  int? tiposeguro;
+  int? preco;
+  int? valoranual;
+
+  TipoDeSeguro(
+      {nomeseguradora,
+      nomeapolice,
+      this.nomeseguro,
+      this.tiposeguro,
+      this.preco,
+      this.valoranual})
+      : super(nomeseguradora: nomeseguradora, nomeapolice: nomeapolice);
+  @override
+  String toString() {
+    return '''\n
+    Apolice: 
+      Seguradora: $nomeseguradora
+      Apólice: $nomeapolice
+      Nome: $nomeseguro
+      Tipo de Seguro: $tiposeguro 
+      Preço do Seguro: $preco
+      Valor Anual: $valoranual''';
+  }
+}
   // String? _nomeapolice;
   // String? _tipo;
   // int? _valorpremio;

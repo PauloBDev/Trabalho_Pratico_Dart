@@ -17,68 +17,173 @@ void main() {
 
   List apolices = [];
   apolices.add(Apolices(
-      nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1));
+      nomeseguradora: 'A',
+      nomeapolice: "A",
+      tipo: "10",
+      valorpremio: 100,
+      duracao: 1,
+      active: 0));
   apolices.add(Apolices(
-      nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 1));
+      nomeseguradora: 'A',
+      nomeapolice: "B",
+      tipo: "10",
+      valorpremio: 101,
+      duracao: 2,
+      active: 1));
   apolices.add(Apolices(
-      nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1));
+      nomeseguradora: 'B',
+      nomeapolice: "C",
+      tipo: "10",
+      valorpremio: 102,
+      duracao: 3,
+      active: 1));
   apolices.add(Apolices(
-      nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 1));
+      nomeseguradora: 'A',
+      nomeapolice: "D",
+      tipo: "10",
+      valorpremio: 103,
+      duracao: 4,
+      active: 1));
   apolices.add(Apolices(
-      nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1));
+      nomeseguradora: 'A',
+      nomeapolice: "E",
+      tipo: "10",
+      valorpremio: 104,
+      duracao: 5,
+      active: 1));
   apolices.add(Apolices(
-      nomeapolice: "F", tipo: "10", valorpremio: 105, duracao: 6, active: 0));
+      nomeseguradora: 'B',
+      nomeapolice: "F",
+      tipo: "10",
+      valorpremio: 105,
+      duracao: 6,
+      active: 0));
 
-  // List<Apolices> apolices = [
-  //   Apolices(
-  //       nomeapolice: "A", tipo: "10", valorpremio: 100, duracao: 1, active: 1),
-  //   Apolices(
-  //       nomeapolice: "B", tipo: "10", valorpremio: 101, duracao: 2, active: 1),
-  //   Apolices(
-  //       nomeapolice: "C", tipo: "10", valorpremio: 102, duracao: 3, active: 1),
-  //   Apolices(
-  //       nomeapolice: "D", tipo: "10", valorpremio: 103, duracao: 4, active: 1),
-  //   Apolices(
-  //       nomeapolice: "E", tipo: "10", valorpremio: 104, duracao: 5, active: 1),
-  //   Apolices(
-  //       nomeapolice: "F", tipo: "10", valorpremio: 105, duracao: 6, active: 0)
-  // ];
-  // seguradora primseguradora = seguradora();
-  // primseguradora.nomeseguradora = "primseguradora";
-  // primseguradora.muradaseguradora = "murada da primseguradora";
-  // primseguradora.ano = 2022;
+  List tomadores = [];
+  tomadores.add(Tomador(
+      nomeseguradora: 'A',
+      nomeapolice: 'A',
+      valorpremio: 1000,
+      nometomador: 'Tomador A',
+      muradatomador: 'Murada Tomador A',
+      idade: 1));
+  tomadores.add(Tomador(
+      nomeseguradora: 'A',
+      nomeapolice: 'B',
+      valorpremio: 2000,
+      nometomador: 'Tomador B',
+      muradatomador: 'Murada Tomador B',
+      idade: 2));
+  tomadores.add(Tomador(
+      nomeseguradora: 'A',
+      nomeapolice: 'C',
+      valorpremio: 3000,
+      nometomador: 'Tomador C',
+      muradatomador: 'Murada Tomador C',
+      idade: 3));
+  tomadores.add(Tomador(
+      nomeseguradora: 'B',
+      nomeapolice: 'D',
+      valorpremio: 4000,
+      nometomador: 'Tomador D',
+      muradatomador: 'Murada Tomador D',
+      idade: 4));
+  tomadores.add(Tomador(
+      nomeseguradora: 'B',
+      nomeapolice: 'E',
+      valorpremio: 5000,
+      nometomador: 'Tomador E',
+      muradatomador: 'Murada Tomador E',
+      idade: 5));
+  tomadores.add(Tomador(
+      nomeseguradora: 'B',
+      nomeapolice: 'F',
+      valorpremio: 3000,
+      nometomador: 'Tomador F',
+      muradatomador: 'Murada Tomador F',
+      idade: 20));
 
-  // seguradora segseguradora = seguradora();
-  // segseguradora.nomeseguradora = "segseguradora";
-  // segseguradora.muradaseguradora = "murada da segseguradora";
-  // segseguradora.ano = 2021;
+  List tiposeguros = [];
+  tiposeguros.add(TipoDeSeguro(
+    nomeseguradora: 'A',
+    nomeapolice: 'A',
+    nomeseguro: 'A',
+    tiposeguro: 1,
+    preco: 10000,
+    valoranual: 10,
+  ));
+  tiposeguros.add(TipoDeSeguro(
+    nomeseguradora: 'A',
+    nomeapolice: 'B',
+    nomeseguro: 'B',
+    tiposeguro: 2,
+    preco: 20000,
+    valoranual: 20,
+  ));
+  tiposeguros.add(TipoDeSeguro(
+    nomeseguradora: 'A',
+    nomeapolice: 'C',
+    nomeseguro: 'C',
+    tiposeguro: 3,
+    preco: 30000,
+    valoranual: 30,
+  ));
+  tiposeguros.add(TipoDeSeguro(
+    nomeseguradora: 'B',
+    nomeapolice: 'D',
+    nomeseguro: 'D',
+    tiposeguro: 4,
+    preco: 40000,
+    valoranual: 40,
+  ));
+  tiposeguros.add(TipoDeSeguro(
+    nomeseguradora: 'B',
+    nomeapolice: 'E',
+    nomeseguro: 'E',
+    tiposeguro: 5,
+    preco: 50000,
+    valoranual: 50,
+  ));
+  tiposeguros.add(TipoDeSeguro(
+    nomeseguradora: 'B',
+    nomeapolice: 'E',
+    nomeseguro: 'E',
+    tiposeguro: 6,
+    preco: 60000,
+    valoranual: 60,
+  ));
 
-  // Apolices primapolice = Apolices();
-  // primapolice.nomeapolice = "primapolice";
-  // primapolice.tipo = "Apolice aberta";
-  // primapolice.valorpremio = 15670;
-  // primapolice.duracao = 10;
-  // primapolice.active = 1;
-
-  // Apolices segapolice = Apolices();
-  // segapolice.nomeapolice = "segapolice";
-  // segapolice.tipo = "Apolice fechada";
-  // segapolice.valorpremio = 12908;
-  // segapolice.duracao = 5;
-  // segapolice.active = 0;
-
-  // Apolices terapolice = Apolices();
-  // terapolice.nomeapolice = "terapolice";
-  // terapolice.tipo = "Apolice recibo";
-  // terapolice.valorpremio = 19009;
-  // terapolice.duracao = 2;
-  // terapolice.active = 1;
-
-  // List apolices = [];
-  // apolices.add(primapolice);
-  // apolices.add(segapolice);
-  // apolices.add(terapolice);
-
+  List segurados = [];
+  segurados.add(Segurado(
+    nometomador: 'A',
+    nomesegurado: 'a',
+    tiposegurado: 1,
+  ));
+  segurados.add(Segurado(
+    nometomador: 'B',
+    nomesegurado: 'b',
+    tiposegurado: 2,
+  ));
+  segurados.add(Segurado(
+    nometomador: 'C',
+    nomesegurado: 'c',
+    tiposegurado: 3,
+  ));
+  segurados.add(Segurado(
+    nometomador: 'D',
+    nomesegurado: 'd',
+    tiposegurado: 4,
+  ));
+  segurados.add(Segurado(
+    nometomador: 'E',
+    nomesegurado: 'e',
+    tiposegurado: 5,
+  ));
+  segurados.add(Segurado(
+    nometomador: 'F',
+    nomesegurado: 'f',
+    tiposegurado: 6,
+  ));
   do {
     //pushar o menu
     menu();
@@ -105,6 +210,25 @@ void main() {
 
       //numero de apolices e valor medio por seguradora
       case 2:
+        int counter = 0;
+        double sum = 0;
+        print('Numero de Apólices: ${apolices.length}');
+        for (int i = 0; i < apolices.length; i++) {
+          if (apolices[i].nomeseguradora == 'A') {
+            sum += apolices[i].valorpremio;
+            counter++;
+          }
+        }
+        double A = sum / counter;
+        for (int i = 0; i < apolices.length; i++) {
+          if (apolices[i].nomeseguradora == 'B') {
+            sum += apolices[i].valorpremio;
+            counter++;
+          }
+        }
+        double B = sum / counter;
+        print('A seguradora A tem o valor de: $A');
+        print('A seguradora B tem o valor de: $B');
         break;
 
       //numero de apolices e valor medio por seguro
