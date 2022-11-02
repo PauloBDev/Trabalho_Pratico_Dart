@@ -287,6 +287,13 @@ void main() {
 
       //somatório dos premios das apolices
       case 6:
+        double sum = 0;
+        for (int i = 0; i < apolices.length; i++) {
+          if (apolices[i].active == 1) {
+            sum += apolices[i].valorpremio;
+          }
+        }
+        print('O total valor dos prémios das apólices é: $sum€');
         break;
 
       //quem tem a apolices, nome, idade, murada
@@ -294,7 +301,9 @@ void main() {
         for (int j = 0; j < apolices.length; j++) {
           print('A apolice ${apolices[j].nomeapolice} tem os tomadores:');
           for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'A' && tomadores[i].active == 1) {
+            if (tomadores[i].nomeapolice == 'A' &&
+                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
+                tomadores[i].active == 1) {
               print('''
           Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -302,7 +311,9 @@ void main() {
             }
           }
           for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'B' && tomadores[i].active == 1) {
+            if (tomadores[i].nomeapolice == 'B' &&
+                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
+                tomadores[i].active == 1) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -310,7 +321,9 @@ void main() {
             }
           }
           for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'C' && tomadores[i].active == 1) {
+            if (tomadores[i].nomeapolice == 'C' &&
+                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
+                tomadores[i].active == 1) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -318,7 +331,9 @@ void main() {
             }
           }
           for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'D' && tomadores[i].active == 1) {
+            if (tomadores[i].nomeapolice == 'D' &&
+                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
+                tomadores[i].active == 1) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -326,7 +341,9 @@ void main() {
             }
           }
           for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'E' && tomadores[i].active == 1) {
+            if (tomadores[i].nomeapolice == 'E' &&
+                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
+                tomadores[i].active == 1) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -334,7 +351,9 @@ void main() {
             }
           }
           for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'F' && tomadores[i].active == 1) {
+            if (tomadores[i].nomeapolice == 'F' &&
+                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
+                tomadores[i].active == 1) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
