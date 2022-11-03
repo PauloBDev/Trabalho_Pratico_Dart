@@ -1,11 +1,9 @@
-import 'dart:collection';
-
-class seguradora {
+class Seguradora {
   String? nomeseguradora;
   String? muradaseguradora;
   int? ano;
 
-  seguradora({this.nomeseguradora, this.muradaseguradora, this.ano});
+  Seguradora({this.nomeseguradora, this.muradaseguradora, this.ano});
 
   @override
   String toString() {
@@ -17,7 +15,7 @@ class seguradora {
   }
 }
 
-class Apolices extends seguradora {
+class Apolices extends Seguradora {
   String? nomeapolice;
   String? tipo;
   int? valorpremio;

@@ -1,14 +1,12 @@
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:trabalho1/question3lib.dart';
 
 void main() {
   int N = 0;
   List seguradoras = [];
-  seguradoras.add(seguradora(
+  seguradoras.add(Seguradora(
       nomeseguradora: "A", muradaseguradora: "Seguradora A murada", ano: 1990));
-  seguradoras.add(seguradora(
+  seguradoras.add(Seguradora(
       nomeseguradora: "B", muradaseguradora: "Seguradora B murada", ano: 1990));
 
   List apolices = [];
