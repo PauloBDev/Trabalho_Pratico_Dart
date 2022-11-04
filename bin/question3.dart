@@ -3,193 +3,216 @@ import 'package:trabalho1/question3lib.dart';
 
 void main() {
   int N = 0;
-  List seguradoras = [];
-  seguradoras.add(Seguradora(
-      nomeseguradora: 'A', muradaseguradora: "Seguradora A murada", ano: 1990));
-  seguradoras.add(Seguradora(
-      nomeseguradora: "B", muradaseguradora: "Seguradora B murada", ano: 1990));
+  List seguradoras = [
+    Seguradora(
+      nomeseguradora: 'A',
+      muradaseguradora: "Seguradora A murada",
+      ano: 1990,
+    ),
+    Seguradora(
+      nomeseguradora: "B",
+      muradaseguradora: "Seguradora B murada",
+      ano: 1990,
+    )
+  ];
 
-  List apolices = [];
-  apolices.add(Apolices(
+  List apolices = [
+    Apolices(
       nomeseguradora: 'A',
       nomeapolice: "A",
       tipo: "10",
       valorpremio: 100,
       duracao: 1,
-      active: 0));
-  apolices.add(Apolices(
+      active: false,
+    ),
+    Apolices(
       nomeseguradora: 'A',
       nomeapolice: "B",
       tipo: "20",
       valorpremio: 101,
       duracao: 2,
-      active: 1));
-  apolices.add(Apolices(
+      active: true,
+    ),
+    Apolices(
       nomeseguradora: 'B',
       nomeapolice: "C",
       tipo: "30",
       valorpremio: 102,
       duracao: 3,
-      active: 1));
-  apolices.add(Apolices(
+      active: true,
+    ),
+    Apolices(
       nomeseguradora: 'A',
       nomeapolice: "D",
       tipo: "40",
       valorpremio: 103,
       duracao: 4,
-      active: 1));
-  apolices.add(Apolices(
+      active: true,
+    ),
+    Apolices(
       nomeseguradora: 'A',
       nomeapolice: "E",
       tipo: "50",
       valorpremio: 104,
       duracao: 5,
-      active: 1));
-  apolices.add(Apolices(
+      active: true,
+    ),
+    Apolices(
       nomeseguradora: 'B',
       nomeapolice: "F",
       tipo: "60",
       valorpremio: 105,
       duracao: 6,
-      active: 0));
+      active: false,
+    )
+  ];
 
-  List tomadores = [];
-  tomadores.add(Tomador(
+  List tomadores = [
+    Tomador(
       nomeseguradora: 'A',
       nomeapolice: 'B',
       valorpremio: 1000,
-      active: 0,
+      active: false,
       nometomador: 'Tomador A',
       muradatomador: 'Murada Tomador A',
-      idade: 1));
-  tomadores.add(Tomador(
+      idade: 1,
+    ),
+    Tomador(
       nomeseguradora: 'A',
       nomeapolice: 'B',
       valorpremio: 2000,
-      active: 1,
+      active: true,
       nometomador: 'Tomador B',
       muradatomador: 'Murada Tomador B',
-      idade: 2));
-  tomadores.add(Tomador(
+      idade: 2,
+    ),
+    Tomador(
       nomeseguradora: 'A',
       nomeapolice: 'C',
       valorpremio: 3000,
-      active: 1,
+      active: true,
       nometomador: 'Tomador C',
       muradatomador: 'Murada Tomador C',
-      idade: 3));
-  tomadores.add(Tomador(
+      idade: 3,
+    ),
+    Tomador(
       nomeseguradora: 'B',
       nomeapolice: 'D',
       valorpremio: 4000,
-      active: 1,
+      active: true,
       nometomador: 'Tomador D',
       muradatomador: 'Murada Tomador D',
-      idade: 4));
-  tomadores.add(Tomador(
+      idade: 4,
+    ),
+    Tomador(
       nomeseguradora: 'B',
       nomeapolice: 'E',
       valorpremio: 5000,
-      active: 1,
+      active: true,
       nometomador: 'Tomador E',
       muradatomador: 'Murada Tomador E',
-      idade: 5));
-  tomadores.add(Tomador(
+      idade: 5,
+    ),
+    Tomador(
       nomeseguradora: 'B',
       nomeapolice: 'F',
       valorpremio: 3000,
-      active: 1,
+      active: true,
       nometomador: 'Tomador F',
       muradatomador: 'Murada Tomador F',
-      idade: 20));
+      idade: 20,
+    )
+  ];
 
-  List tiposeguros = [];
-  tiposeguros.add(TipoDeSeguro(
-    nomeseguradora: 'A',
-    nomeapolice: 'A',
-    nomeseguro: 'A',
-    active: 1,
-    tiposeguro: 1,
-    preco: 10000,
-    valoranual: 10,
-  ));
-  tiposeguros.add(TipoDeSeguro(
-    nomeseguradora: 'A',
-    nomeapolice: 'B',
-    nomeseguro: 'B',
-    active: 1,
-    tiposeguro: 2,
-    preco: 20000,
-    valoranual: 20,
-  ));
-  tiposeguros.add(TipoDeSeguro(
-    nomeseguradora: 'A',
-    nomeapolice: 'C',
-    nomeseguro: 'C',
-    active: 1,
-    tiposeguro: 3,
-    preco: 30000,
-    valoranual: 30,
-  ));
-  tiposeguros.add(TipoDeSeguro(
-    nomeseguradora: 'B',
-    nomeapolice: 'D',
-    nomeseguro: 'D',
-    active: 1,
-    tiposeguro: 4,
-    preco: 40000,
-    valoranual: 40,
-  ));
-  tiposeguros.add(TipoDeSeguro(
-    nomeseguradora: 'B',
-    nomeapolice: 'E',
-    nomeseguro: 'E',
-    active: 1,
-    tiposeguro: 5,
-    preco: 50000,
-    valoranual: 50,
-  ));
-  tiposeguros.add(TipoDeSeguro(
-    nomeseguradora: 'B',
-    nomeapolice: 'E',
-    nomeseguro: 'E',
-    active: 0,
-    tiposeguro: 6,
-    preco: 60000,
-    valoranual: 60,
-  ));
+  List tiposeguros = [
+    TipoDeSeguro(
+      nomeseguradora: 'A',
+      nomeapolice: 'A',
+      nomeseguro: 'A',
+      active: true,
+      tiposeguro: 1,
+      preco: 10000,
+      valoranual: 10,
+    ),
+    TipoDeSeguro(
+      nomeseguradora: 'A',
+      nomeapolice: 'B',
+      nomeseguro: 'B',
+      active: true,
+      tiposeguro: 2,
+      preco: 20000,
+      valoranual: 20,
+    ),
+    TipoDeSeguro(
+      nomeseguradora: 'A',
+      nomeapolice: 'C',
+      nomeseguro: 'C',
+      active: true,
+      tiposeguro: 3,
+      preco: 30000,
+      valoranual: 30,
+    ),
+    TipoDeSeguro(
+      nomeseguradora: 'B',
+      nomeapolice: 'D',
+      nomeseguro: 'D',
+      active: true,
+      tiposeguro: 4,
+      preco: 40000,
+      valoranual: 40,
+    ),
+    TipoDeSeguro(
+      nomeseguradora: 'B',
+      nomeapolice: 'E',
+      nomeseguro: 'E',
+      active: true,
+      tiposeguro: 5,
+      preco: 50000,
+      valoranual: 50,
+    ),
+    TipoDeSeguro(
+      nomeseguradora: 'B',
+      nomeapolice: 'E',
+      nomeseguro: 'E',
+      active: true,
+      tiposeguro: 6,
+      preco: 60000,
+      valoranual: 60,
+    )
+  ];
 
-  List segurados = [];
-  segurados.add(Segurado(
-    nometomador: 'A',
-    nomesegurado: 'a',
-    tiposegurado: 1,
-  ));
-  segurados.add(Segurado(
-    nometomador: 'B',
-    nomesegurado: 'b',
-    tiposegurado: 2,
-  ));
-  segurados.add(Segurado(
-    nometomador: 'C',
-    nomesegurado: 'c',
-    tiposegurado: 3,
-  ));
-  segurados.add(Segurado(
-    nometomador: 'D',
-    nomesegurado: 'd',
-    tiposegurado: 4,
-  ));
-  segurados.add(Segurado(
-    nometomador: 'E',
-    nomesegurado: 'e',
-    tiposegurado: 5,
-  ));
-  segurados.add(Segurado(
-    nometomador: 'F',
-    nomesegurado: 'f',
-    tiposegurado: 6,
-  ));
+  List segurados = [
+    Segurado(
+      nometomador: 'A',
+      nomesegurado: 'a',
+      tiposegurado: 1,
+    ),
+    Segurado(
+      nometomador: 'B',
+      nomesegurado: 'b',
+      tiposegurado: 2,
+    ),
+    Segurado(
+      nometomador: 'C',
+      nomesegurado: 'c',
+      tiposegurado: 3,
+    ),
+    Segurado(
+      nometomador: 'D',
+      nomesegurado: 'd',
+      tiposegurado: 4,
+    ),
+    Segurado(
+      nometomador: 'E',
+      nomesegurado: 'e',
+      tiposegurado: 5,
+    ),
+    Segurado(
+      nometomador: 'F',
+      nomesegurado: 'f',
+      tiposegurado: 6,
+    )
+  ];
   do {
     //pushar o menu
     menu();
@@ -201,14 +224,23 @@ void main() {
       //numero de apolices ativas e inativas
       case 1:
         print("Activas: ");
-        for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].active == 1) {
-            print('${apolices[i].toString()}\n');
-          }
-        }
+        apolices
+            .where(
+              (e) => (e.active) != true,
+            )
+            .forEach((e) => print('''\n
+          Apolice:
+            Nome: ${e[apolices[e].nomeseguradora]}
+            Murada: ${e[apolices[e].muradaseguradora]}
+            Criada em: ${e[apolices[e].ano]}\n'''));
+        // for (int i = 0; i < apolices.length; i++) {
+        //   if (apolices[i].active == true) {
+        //     print('${apolices[i].toString()}\n');
+        //   }
+        // }
         print("Inativas: ");
         for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].active == 0) {
+          if (apolices[i].active == false) {
             print('${apolices[i].toString()}\n');
           }
         }
@@ -227,7 +259,7 @@ void main() {
         }
         double A = sum / counter;
         for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].nomeseguradora == 'B' && apolices[i].active == 1) {
+          if (apolices[i].nomeseguradora == 'B' && apolices[i].active == true) {
             sum += apolices[i].valorpremio;
             counter++;
           }
@@ -242,7 +274,7 @@ void main() {
         double sum = 0;
         int counter = 0;
         for (int i = 0; i < tiposeguros.length; i++) {
-          if (apolices[i].active == 1) {
+          if (apolices[i].active == true) {
             sum += tiposeguros[i].preco;
             counter++;
           }
@@ -261,7 +293,7 @@ void main() {
           for (int i = 0; i < apolices.length; i++) {
             if (apolices[i].nomeseguradora == 'A' &&
                 seguradoras[j].nomeseguradora == apolices[i].nomeseguradora &&
-                apolices[i].active == 1) {
+                apolices[i].active == true) {
               print('''
             Nome: ${apolices[i].nomeapolice}
             Tipo: ${apolices[i].tipo}\n''');
@@ -270,7 +302,7 @@ void main() {
           for (int i = 0; i < apolices.length; i++) {
             if (apolices[i].nomeseguradora == 'B' &&
                 seguradoras[j].nomeseguradora == apolices[i].nomeseguradora &&
-                apolices[i].active == 1) {
+                apolices[i].active == true) {
               print('''
             Nome: ${apolices[i].nomeapolice}
             Tipo: ${apolices[i].tipo}\n''');
@@ -287,7 +319,7 @@ void main() {
       case 6:
         double sum = 0;
         for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].active == 1) {
+          if (apolices[i].active == true) {
             sum += apolices[i].valorpremio;
           }
         }
@@ -301,7 +333,7 @@ void main() {
           for (int i = 0; i < tomadores.length; i++) {
             if (tomadores[i].nomeapolice == 'A' &&
                 apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == 1) {
+                tomadores[i].active == true) {
               print('''
           Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -313,7 +345,7 @@ void main() {
           for (int i = 0; i < tomadores.length; i++) {
             if (tomadores[i].nomeapolice == 'B' &&
                 apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == 1) {
+                tomadores[i].active == true) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -323,7 +355,7 @@ void main() {
           for (int i = 0; i < tomadores.length; i++) {
             if (tomadores[i].nomeapolice == 'C' &&
                 apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == 1) {
+                tomadores[i].active == true) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -333,7 +365,7 @@ void main() {
           for (int i = 0; i < tomadores.length; i++) {
             if (tomadores[i].nomeapolice == 'D' &&
                 apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == 1) {
+                tomadores[i].active == true) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -343,7 +375,7 @@ void main() {
           for (int i = 0; i < tomadores.length; i++) {
             if (tomadores[i].nomeapolice == 'E' &&
                 apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == 1) {
+                tomadores[i].active == true) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
@@ -353,7 +385,7 @@ void main() {
           for (int i = 0; i < tomadores.length; i++) {
             if (tomadores[i].nomeapolice == 'F' &&
                 apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == 1) {
+                tomadores[i].active == true) {
               print('''
             Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}

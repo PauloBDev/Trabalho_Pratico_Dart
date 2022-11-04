@@ -24,7 +24,7 @@ class Apolices extends Seguradora {
   String? tipo;
   int? valorpremio;
   int? duracao;
-  int? active;
+  bool? active;
 
   Apolices({
     nomeseguradora,
