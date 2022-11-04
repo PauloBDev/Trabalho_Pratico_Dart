@@ -306,6 +306,8 @@ void main() {
           Nome: ${tomadores[i].nometomador}
             Murada: ${tomadores[i].muradatomador}
             Idade: ${tomadores[i].idade}\n''');
+            } else if (tomadores[i] == null) {
+              print('Não tem tomadores');
             }
           }
           for (int i = 0; i < tomadores.length; i++) {
