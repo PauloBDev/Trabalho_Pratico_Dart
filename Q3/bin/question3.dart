@@ -1,5 +1,9 @@
 import 'dart:io';
-import 'package:trabalho1/question3lib.dart';
+import 'package:trabalho1/seguradoras.dart';
+import 'package:trabalho1/apolices.dart';
+import 'package:trabalho1/tomadores.dart';
+import 'package:trabalho1/tiposeguros.dart';
+import 'package:trabalho1/segurados.dart';
 
 void main() {
   int N = 0;
