@@ -3,7 +3,11 @@ class Seguradora {
   String? muradaseguradora;
   int? ano;
 
-  Seguradora({this.nomeseguradora, this.muradaseguradora, this.ano});
+  Seguradora({
+    this.nomeseguradora,
+    this.muradaseguradora,
+    this.ano,
+  });
 
   @override
   String toString() {
@@ -22,14 +26,14 @@ class Apolices extends Seguradora {
   int? duracao;
   int? active;
 
-  Apolices(
-      {nomeseguradora,
-      this.nomeapolice,
-      this.tipo,
-      this.valorpremio,
-      this.duracao,
-      this.active})
-      : super(nomeseguradora: nomeseguradora);
+  Apolices({
+    nomeseguradora,
+    this.nomeapolice,
+    this.tipo,
+    this.valorpremio,
+    this.duracao,
+    this.active,
+  }) : super(nomeseguradora: nomeseguradora);
 
   @override
   String toString() {
@@ -57,10 +61,11 @@ class Tomador extends Apolices {
     this.muradatomador,
     this.idade,
   }) : super(
-            nomeseguradora: nomeseguradora,
-            nomeapolice: nomeapolice,
-            valorpremio: valorpremio,
-            active: active);
+          nomeseguradora: nomeseguradora,
+          nomeapolice: nomeapolice,
+          valorpremio: valorpremio,
+          active: active,
+        );
   @override
   String toString() {
     return '''\n
@@ -98,18 +103,19 @@ class TipoDeSeguro extends Apolices {
   int? preco;
   int? valoranual;
 
-  TipoDeSeguro(
-      {nomeseguradora,
-      nomeapolice,
-      active,
-      this.nomeseguro,
-      this.tiposeguro,
-      this.preco,
-      this.valoranual})
-      : super(
-            nomeseguradora: nomeseguradora,
-            nomeapolice: nomeapolice,
-            active: active);
+  TipoDeSeguro({
+    nomeseguradora,
+    nomeapolice,
+    active,
+    this.nomeseguro,
+    this.tiposeguro,
+    this.preco,
+    this.valoranual,
+  }) : super(
+          nomeseguradora: nomeseguradora,
+          nomeapolice: nomeapolice,
+          active: active,
+        );
   @override
   String toString() {
     return '''\n
