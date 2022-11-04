@@ -5,7 +5,7 @@ void main() {
   ]; // intervalo
   List<int> b = []; // lista final com os primos
 
-  void checkPrime(var num) {
+  void checkPrime(int num) {
     int i, m = 0, flag = 0;
     m = num ~/ 2;
     for (i = 2; i <= m; i++) {
@@ -37,7 +37,7 @@ void main() {
     // correr a lista
     sum += b[i]; // somar cada elemento
   }
-  print('Sum: ${sum}'); // sair a soma
+  print('Sum: $sum'); // sair a soma
   print('Average: ${sum / b.length}'); // total da soma a dividir
   //pelo numero de resultados
   print('\n');
