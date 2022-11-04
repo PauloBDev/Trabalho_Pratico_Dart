@@ -3,7 +3,6 @@ import 'dart:math';
 
 void main() {
   int N = 0;
-  int num, m = 0; //variaveis a ser usadas
   int amount = Random().nextInt(60) + 90; // número random de random números
   List list = []; // lista dos números todos
   List odd = []; // lista dos números impares
@@ -20,9 +19,13 @@ void main() {
     switch (N) {
       case 1: //Maior e Menor
         var largest = // número maior
-            list.reduce((current, next) => current > next ? current : next);
+            list.reduce(
+          (current, next) => current > next ? current : next,
+        );
         var smallest = // número menos
-            list.reduce((current, next) => current < next ? current : next);
+            list.reduce(
+          (current, next) => current < next ? current : next,
+        );
 
         print('Highest: $largest'); // maior
         print('Lowest : $smallest'); // menor

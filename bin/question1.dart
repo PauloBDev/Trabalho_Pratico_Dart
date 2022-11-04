@@ -1,8 +1,8 @@
-import 'package:trabalho1/question3lib.dart' as trabalho1;
-
 void main() {
   var sum = 0; // variavel para ser usada na soma dos números
-  List<int> list = [for (int i = 101; i < 200; i++) i]; // intervalo
+  List<int> list = [
+    for (int i = 101; i < 200; i++) i,
+  ]; // intervalo
   List<int> b = []; // lista final com os primos
 
   void checkPrime(var num) {

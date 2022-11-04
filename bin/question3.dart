@@ -5,7 +5,7 @@ void main() {
   int N = 0;
   List seguradoras = [];
   seguradoras.add(Seguradora(
-      nomeseguradora: "A", muradaseguradora: "Seguradora A murada", ano: 1990));
+      nomeseguradora: 'A', muradaseguradora: "Seguradora A murada", ano: 1990));
   seguradoras.add(Seguradora(
       nomeseguradora: "B", muradaseguradora: "Seguradora B murada", ano: 1990));
 
