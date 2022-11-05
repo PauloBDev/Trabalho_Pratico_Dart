@@ -228,96 +228,93 @@ void main() {
       //numero de apolices ativas e inativas
       case 1:
         print("Activas: ");
-        apolices.where((e) => e.active == true).forEach((e) => print('''\n
-          Apolice:
-            Seguradora: ${e.nomeseguradora}
-            Nome: ${e.nomeapolice}
-            Tipo: ${e.tipo}
-            Valor Prémio: ${e.valorpremio}
-            Duração: ${e.duracao}(s)\n'''));
-        // for (int i = 0; i < apolices.length; i++) {
-        //   if (apolices[i].active == true) {
-        //     print('${apolices[i].toString()}\n');
-        //   }
-        // }
+        apolices.where((e) => e.active == true).forEach((e) => print(
+              '''\n
+      Apolice:
+        Seguradora: ${e.nomeseguradora}
+        Nome: ${e.nomeapolice}
+        Tipo: ${e.tipo}
+        Valor Prémio: ${e.valorpremio}
+        Duração: ${e.duracao}(s)\n''',
+            ));
+
         print("Inativas: ");
-        apolices.where((e) => e.active == false).forEach((e) => print('''\n
-          Apolice:
-            Seguradora: ${e.nomeseguradora}
-            Nome: ${e.nomeapolice}
-            Tipo: ${e.tipo}
-            Valor Prémio: ${e.valorpremio}
-            Duração: ${e.duracao}(s)\n'''));
-        // for (int i = 0; i < apolices.length; i++) {
-        //   if (apolices[i].active == false) {
-        //     print('${apolices[i].toString()}\n');
-        //   }
-        // }
+        apolices.where((e) => e.active == false).forEach((e) => print(
+              '''\n
+      Apolice:
+        Seguradora: ${e.nomeseguradora}
+        Nome: ${e.nomeapolice}
+        Tipo: ${e.tipo}
+        Valor Prémio: ${e.valorpremio}
+        Duração: ${e.duracao}(s)\n''',
+            ));
         break;
 
       //numero de apolices e valor medio por seguradora
       case 2:
         int counter = 0;
+        int counter1 = 0;
         double sum = 0;
+        double sum1 = 0;
         print('Numero de Apólices: ${apolices.length}');
-        for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].nomeseguradora == 'A') {
-            sum += apolices[i].valorpremio;
-            counter++;
-          }
-        }
-        double A = sum / counter;
-        for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].nomeseguradora == 'B' && apolices[i].active == true) {
-            sum += apolices[i].valorpremio;
-            counter++;
-          }
-        }
-        double B = sum / counter;
-        print('A seguradora A tem o valor médio de: $A');
-        print('A seguradora B tem o valor médio de: $B');
+        apolices
+            .where((e) => e.nomeseguradora == 'A' && e.active == true)
+            .forEach((e) => {
+                  sum += e.valorpremio,
+                  counter++,
+                });
+
+        sum = sum / counter;
+        print('A seguradora A tem o valor médio de: $sum');
+        apolices
+            .where((e) => e.nomeseguradora == 'B' && e.active == true)
+            .forEach((e) => {
+                  sum1 += e.valorpremio,
+                  counter1++,
+                });
+        sum1 = sum1 / counter1;
+        print('A seguradora B tem o valor médio de: $sum1');
         break;
 
       //numero de apolices e valor medio por seguro
       case 3:
         double sum = 0;
         int counter = 0;
-        for (int i = 0; i < tiposeguros.length; i++) {
-          if (apolices[i].active == true) {
-            sum += tiposeguros[i].preco;
-            counter++;
-          }
-        }
-        double total = sum / counter;
-        print('O valor médio dos seguros é: $total€');
+        tiposeguros.where((e) => e.active == true).forEach((e) => {
+              sum += e.preco,
+              counter++,
+            });
+        sum = sum / counter;
+        print('O valor médio dos seguros é: $sum');
         break;
 
       // relatório de apolices ativas por
       // tipo de seguro e seguradora
       // valor de cada premio
       case 4:
-        for (int j = 0; j < seguradoras.length; j++) {
-          print(
-              'A seguradora ${seguradoras[j].nomeseguradora} tem as apólices:');
-          for (int i = 0; i < apolices.length; i++) {
-            if (apolices[i].nomeseguradora == 'A' &&
-                seguradoras[j].nomeseguradora == apolices[i].nomeseguradora &&
-                apolices[i].active == true) {
-              print('''
-            Nome: ${apolices[i].nomeapolice}
-            Tipo: ${apolices[i].tipo}\n''');
-            }
-          }
-          for (int i = 0; i < apolices.length; i++) {
-            if (apolices[i].nomeseguradora == 'B' &&
-                seguradoras[j].nomeseguradora == apolices[i].nomeseguradora &&
-                apolices[i].active == true) {
-              print('''
-            Nome: ${apolices[i].nomeapolice}
-            Tipo: ${apolices[i].tipo}\n''');
-            }
-          }
-        }
+        seguradoras.where((j) => j.nomeseguradora != null).forEach((j) => {
+              print('A seguradora ${j.nomeseguradora} tem as apólices:'),
+              apolices
+                  .where((e) =>
+                      e.nomeseguradora == 'A' &&
+                      e.nomeseguradora == j.nomeseguradora &&
+                      e.active == true)
+                  .forEach((e) => print(
+                        '''
+      Nome: ${e.nomeapolice}
+      Tipo: ${e.tipo}\n''',
+                      )),
+              apolices
+                  .where((e) =>
+                      e.nomeseguradora == 'B' &&
+                      e.nomeseguradora == j.nomeseguradora &&
+                      e.active == true)
+                  .forEach((e) => print(
+                        '''
+      Nome: ${e.nomeapolice}
+      Tipo: ${e.tipo}\n''',
+                      )),
+            });
         break;
 
       //analise dos premios anuais das seguradoras
@@ -327,81 +324,83 @@ void main() {
       //somatório dos premios das apolices
       case 6:
         double sum = 0;
-        for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].active == true) {
-            sum += apolices[i].valorpremio;
-          }
-        }
+        apolices.where((e) => e.active == true).forEach((e) {
+          sum += e.valorpremio;
+        });
         print('O total valor dos prémios das apólices é: $sum€');
         break;
 
       //quem tem a apolices, nome, idade, murada
       case 7:
-        for (int j = 0; j < apolices.length; j++) {
-          print('A apolice ${apolices[j].nomeapolice} tem os tomadores:');
-          for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'A' &&
-                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == true) {
-              print('''
-          Nome: ${tomadores[i].nometomador}
-            Murada: ${tomadores[i].muradatomador}
-            Idade: ${tomadores[i].idade}\n''');
-            } else if (tomadores[i] == null) {
-              print('Não tem tomadores');
-            }
-          }
-          for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'B' &&
-                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == true) {
-              print('''
-            Nome: ${tomadores[i].nometomador}
-            Murada: ${tomadores[i].muradatomador}
-            Idade: ${tomadores[i].idade}\n''');
-            }
-          }
-          for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'C' &&
-                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == true) {
-              print('''
-            Nome: ${tomadores[i].nometomador}
-            Murada: ${tomadores[i].muradatomador}
-            Idade: ${tomadores[i].idade}\n''');
-            }
-          }
-          for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'D' &&
-                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == true) {
-              print('''
-            Nome: ${tomadores[i].nometomador}
-            Murada: ${tomadores[i].muradatomador}
-            Idade: ${tomadores[i].idade}\n''');
-            }
-          }
-          for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'E' &&
-                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == true) {
-              print('''
-            Nome: ${tomadores[i].nometomador}
-            Murada: ${tomadores[i].muradatomador}
-            Idade: ${tomadores[i].idade}\n''');
-            }
-          }
-          for (int i = 0; i < tomadores.length; i++) {
-            if (tomadores[i].nomeapolice == 'F' &&
-                apolices[j].nomeapolice == tomadores[i].nomeapolice &&
-                tomadores[i].active == true) {
-              print('''
-            Nome: ${tomadores[i].nometomador}
-            Murada: ${tomadores[i].muradatomador}
-            Idade: ${tomadores[i].idade}\n''');
-            }
-          }
-        }
+        apolices.where((j) => j.nomeapolice != null).forEach((j) => {
+              print('A apolice ${j.nomeapolice} tem os tomadores:'),
+              tomadores
+                  .where((e) =>
+                      e.nomeapolice == 'A' &&
+                      e.nomeapolice == j.nomeapolice &&
+                      e.active == true)
+                  .forEach((e) => print(
+                        '''
+      Nome: ${e.nometomador}
+      Murada: ${e.muradatomador}
+      Idade: ${e.idade}\n''',
+                      )),
+              tomadores
+                  .where((e) =>
+                      e.nomeapolice == 'B' &&
+                      e.nomeapolice == j.nomeapolice &&
+                      e.active == true)
+                  .forEach((e) => print(
+                        '''
+      Nome: ${e.nometomador}
+      Murada: ${e.muradatomador}
+      Idade: ${e.idade}\n''',
+                      )),
+              tomadores
+                  .where((e) =>
+                      e.nomeapolice == 'C' &&
+                      e.nomeapolice == j.nomeapolice &&
+                      e.active == true)
+                  .forEach((e) => print(
+                        '''
+      Nome: ${e.nometomador}
+      Murada: ${e.muradatomador}
+      Idade: ${e.idade}\n''',
+                      )),
+              tomadores
+                  .where((e) =>
+                      e.nomeapolice == 'D' &&
+                      e.nomeapolice == j.nomeapolice &&
+                      e.active == true)
+                  .forEach((e) => print(
+                        '''
+      Nome: ${e.nometomador}
+      Murada: ${e.muradatomador}
+      Idade: ${e.idade}\n''',
+                      )),
+              tomadores
+                  .where((e) =>
+                      e.nomeapolice == 'E' &&
+                      e.nomeapolice == j.nomeapolice &&
+                      e.active == true)
+                  .forEach((e) => print(
+                        '''
+      Nome: ${e.nometomador}
+      Murada: ${e.muradatomador}
+      Idade: ${e.idade}\n''',
+                      )),
+              tomadores
+                  .where((e) =>
+                      e.nomeapolice == 'F' &&
+                      e.nomeapolice == j.nomeapolice &&
+                      e.active == true)
+                  .forEach((e) => print(
+                        '''
+      Nome: ${e.nometomador}
+      Murada: ${e.muradatomador}
+      Idade: ${e.idade}\n''',
+                      )),
+            });
         break;
 
       //exit
@@ -420,7 +419,7 @@ void main() {
 
 void menu() {
   //menu
-  print('-------------------Surpresas Existem!----------------------- ');
+  print('-------------------Surprises EXIST!----------------------- ');
   print('\n1. Active and Innactive policies.');
   print('2. Average price of active poilicies by insurance.');
   print('3. Average price of active policies by type of insurance');
