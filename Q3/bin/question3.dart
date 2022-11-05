@@ -228,22 +228,31 @@ void main() {
       //numero de apolices ativas e inativas
       case 1:
         print("Activas: ");
-        // apolices.where((e) => (e[active]) == true).forEach((e) => print('''\n
-        //   Apolice:
-        //     Nome: ${e[apolices[e].nomeseguradora]}
-        //     Murada: ${e[apolices[e].muradaseguradora]}
-        //     Criada em: ${e[apolices[e].ano]}\n'''));
-        for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].active == true) {
-            print('${apolices[i].toString()}\n');
-          }
-        }
+        apolices.where((e) => e.active == true).forEach((e) => print('''\n
+          Apolice:
+            Seguradora: ${e.nomeseguradora}
+            Nome: ${e.nomeapolice}
+            Tipo: ${e.tipo}
+            Valor Prémio: ${e.valorpremio}
+            Duração: ${e.duracao}(s)\n'''));
+        // for (int i = 0; i < apolices.length; i++) {
+        //   if (apolices[i].active == true) {
+        //     print('${apolices[i].toString()}\n');
+        //   }
+        // }
         print("Inativas: ");
-        for (int i = 0; i < apolices.length; i++) {
-          if (apolices[i].active == false) {
-            print('${apolices[i].toString()}\n');
-          }
-        }
+        apolices.where((e) => e.active == false).forEach((e) => print('''\n
+          Apolice:
+            Seguradora: ${e.nomeseguradora}
+            Nome: ${e.nomeapolice}
+            Tipo: ${e.tipo}
+            Valor Prémio: ${e.valorpremio}
+            Duração: ${e.duracao}(s)\n'''));
+        // for (int i = 0; i < apolices.length; i++) {
+        //   if (apolices[i].active == false) {
+        //     print('${apolices[i].toString()}\n');
+        //   }
+        // }
         break;
 
       //numero de apolices e valor medio por seguradora
