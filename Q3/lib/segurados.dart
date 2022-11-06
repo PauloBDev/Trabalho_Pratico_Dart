@@ -11,8 +11,7 @@ class Segurado extends Tomador {
   }) : super(nometomador: nometomador);
   @override
   String toString() {
-    return '''\n
-    Apolice: 
+    return '''Segurado:
       Tomador: $nometomador
       Tipo de Segurado: $tiposegurado
       Nome do Segurado: $nomesegurado''';

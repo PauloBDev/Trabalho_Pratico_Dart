@@ -15,8 +15,7 @@ class TipoDeSeguro extends Seguradora {
         );
   @override
   String toString() {
-    return '''\n
-    Apolice: 
+    return '''Tipo de seguro:
       Seguradora: $nomeseguradora
       Nome: $nomeseguro
       Tipo de Seguro: $tiposeguro''';

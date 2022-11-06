@@ -11,8 +11,7 @@ class Seguradora {
 
   @override
   String toString() {
-    return '''\n
-    Apolice: 
+    return '''Seguradora:
       Nome: $nomeseguradora
       Murada: $muradaseguradora 
       Criada em: $ano\n''';

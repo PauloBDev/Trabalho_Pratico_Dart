@@ -31,8 +31,7 @@ class Apolices extends Tomador {
 
   @override
   String toString() {
-    return '''\n
-    Apolice: 
+    return '''Apolice:
       Seguradora: $nomeseguradora
       Tomador: $nometomador
       Nome do Seguro: $nomeseguro
