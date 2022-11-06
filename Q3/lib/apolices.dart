@@ -1,29 +1,45 @@
-import 'seguradoras.dart';
+import 'package:trabalho1/tiposeguros.dart';
+import 'package:trabalho1/tomadores.dart';
 
-class Apolices extends Seguradora {
+class Apolices extends Tomador {
   String? nomeapolice;
-  String? tipo;
-  int? valorpremio;
-  int? duracao;
+  double? cobertura;
+  double? valoranual;
+  double? duracao;
   bool? active;
 
   Apolices({
     nomeseguradora,
+    nometomador,
+    muradatomador,
+    idadetomador,
+    nomeseguro,
+    tiposeguro,
+    this.cobertura,
+    this.valoranual,
     this.nomeapolice,
-    this.tipo,
-    this.valorpremio,
     this.duracao,
     this.active,
-  }) : super(nomeseguradora: nomeseguradora);
+  }) : super(
+          nomeseguradora: nomeseguradora,
+          muradatomador: muradatomador,
+          idadetomador: idadetomador,
+          nometomador: nometomador,
+          nomeseguro: nomeseguro,
+          tiposeguro: tiposeguro,
+        );
 
   @override
   String toString() {
     return '''\n
     Apolice: 
       Seguradora: $nomeseguradora
-      Nome: $nomeapolice
-      Tipo: $tipo 
-      Valor Prémio: $valorpremio
+      Tomador: $nometomador
+      Nome do Seguro: $nomeseguro
+      Tipo de Seguro: $tiposeguro
+      Nome da Apolice: $nomeapolice
+      Cobertura: $cobertura
+      Valor Anual: $valoranual
       Duração: $duracao ano(s)''';
   }
 }

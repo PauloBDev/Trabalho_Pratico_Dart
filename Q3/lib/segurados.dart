@@ -2,7 +2,7 @@ import 'tomadores.dart';
 
 class Segurado extends Tomador {
   String? nomesegurado;
-  int? tiposegurado;
+  String? tiposegurado;
 
   Segurado({
     nometomador,

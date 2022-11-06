@@ -1,33 +1,24 @@
-import 'apolices.dart';
+import 'package:trabalho1/seguradoras.dart';
 
-class TipoDeSeguro extends Apolices {
+import 'seguradoras.dart';
+
+class TipoDeSeguro extends Seguradora {
   String? nomeseguro;
-  int? tiposeguro;
-  int? preco;
-  int? valoranual;
+  String? tiposeguro;
 
   TipoDeSeguro({
     nomeseguradora,
-    nomeapolice,
-    active,
     this.nomeseguro,
     this.tiposeguro,
-    this.preco,
-    this.valoranual,
   }) : super(
           nomeseguradora: nomeseguradora,
-          nomeapolice: nomeapolice,
-          active: active,
         );
   @override
   String toString() {
     return '''\n
     Apolice: 
       Seguradora: $nomeseguradora
-      Apólice: $nomeapolice
       Nome: $nomeseguro
-      Tipo de Seguro: $tiposeguro 
-      Preço do Seguro: $preco
-      Valor Anual: $valoranual''';
+      Tipo de Seguro: $tiposeguro''';
   }
 }

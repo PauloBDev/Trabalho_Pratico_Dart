@@ -20,168 +20,168 @@ void main() {
     )
   ];
 
-  List apolices = [
-    Apolices(
+  List tiposeguros = [
+    TipoDeSeguro(
       nomeseguradora: 'A',
-      nomeapolice: "A",
-      tipo: "10",
-      valorpremio: 100,
-      duracao: 1,
-      active: false,
+      nomeseguro: 'A',
+      tiposeguro: '1',
     ),
-    Apolices(
+    TipoDeSeguro(
       nomeseguradora: 'A',
-      nomeapolice: "B",
-      tipo: "20",
-      valorpremio: 101,
-      duracao: 2,
-      active: true,
+      nomeseguro: 'B',
+      tiposeguro: '2',
     ),
-    Apolices(
+    TipoDeSeguro(
+      nomeseguradora: 'A',
+      nomeseguro: 'C',
+      tiposeguro: '3',
+    ),
+    TipoDeSeguro(
       nomeseguradora: 'B',
-      nomeapolice: "C",
-      tipo: "30",
-      valorpremio: 102,
-      duracao: 3,
-      active: true,
+      nomeseguro: 'D',
+      tiposeguro: '4',
     ),
-    Apolices(
-      nomeseguradora: 'A',
-      nomeapolice: "D",
-      tipo: "40",
-      valorpremio: 103,
-      duracao: 4,
-      active: true,
-    ),
-    Apolices(
-      nomeseguradora: 'A',
-      nomeapolice: "E",
-      tipo: "50",
-      valorpremio: 104,
-      duracao: 5,
-      active: true,
-    ),
-    Apolices(
+    TipoDeSeguro(
       nomeseguradora: 'B',
-      nomeapolice: "F",
-      tipo: "60",
-      valorpremio: 105,
-      duracao: 6,
-      active: false,
+      nomeseguro: 'E',
+      tiposeguro: '5',
+    ),
+    TipoDeSeguro(
+      nomeseguradora: 'B',
+      nomeseguro: 'E',
+      tiposeguro: '6',
     )
   ];
 
   List tomadores = [
     Tomador(
       nomeseguradora: 'A',
-      nomeapolice: 'B',
-      valorpremio: 1000,
-      active: false,
+      nomeseguro: 'A',
+      tiposeguro: '1',
       nometomador: 'Tomador A',
       muradatomador: 'Murada Tomador A',
-      idade: 1,
+      idadetomador: 1,
     ),
     Tomador(
       nomeseguradora: 'A',
-      nomeapolice: 'B',
-      valorpremio: 2000,
-      active: true,
+      nomeseguro: 'B',
+      tiposeguro: '2',
       nometomador: 'Tomador B',
       muradatomador: 'Murada Tomador B',
-      idade: 2,
+      idadetomador: 2,
     ),
     Tomador(
       nomeseguradora: 'A',
-      nomeapolice: 'C',
-      valorpremio: 3000,
-      active: true,
+      nomeseguro: 'C',
+      tiposeguro: '3',
       nometomador: 'Tomador C',
       muradatomador: 'Murada Tomador C',
-      idade: 3,
+      idadetomador: 3,
     ),
     Tomador(
       nomeseguradora: 'B',
-      nomeapolice: 'D',
-      valorpremio: 4000,
-      active: true,
+      nomeseguro: 'D',
+      tiposeguro: '4',
       nometomador: 'Tomador D',
       muradatomador: 'Murada Tomador D',
-      idade: 4,
+      idadetomador: 4,
     ),
     Tomador(
       nomeseguradora: 'B',
-      nomeapolice: 'E',
-      valorpremio: 5000,
-      active: true,
+      nomeseguro: 'E',
+      tiposeguro: '5',
       nometomador: 'Tomador E',
       muradatomador: 'Murada Tomador E',
-      idade: 5,
+      idadetomador: 5,
     ),
     Tomador(
       nomeseguradora: 'B',
-      nomeapolice: 'F',
-      valorpremio: 3000,
-      active: true,
+      nomeseguro: 'F',
+      tiposeguro: '6',
       nometomador: 'Tomador F',
       muradatomador: 'Murada Tomador F',
-      idade: 20,
+      idadetomador: 6,
     )
   ];
 
-  List tiposeguros = [
-    TipoDeSeguro(
+  List apolices = [
+    Apolices(
       nomeseguradora: 'A',
-      nomeapolice: 'A',
+      nometomador: 'Tomador A',
+      muradatomador: 'Murada Tomador A',
+      idadetomador: 1,
       nomeseguro: 'A',
+      tiposeguro: '1',
+      cobertura: 100.0,
+      valoranual: 1.0,
+      nomeapolice: "A",
+      duracao: 1,
       active: true,
-      tiposeguro: 1,
-      preco: 10000,
-      valoranual: 10,
     ),
-    TipoDeSeguro(
-      nomeseguradora: 'A',
-      nomeapolice: 'B',
+    Apolices(
+      nomeseguradora: 'B',
+      nometomador: 'Tomador B',
+      muradatomador: 'Murada Tomador B',
+      idadetomador: 2,
       nomeseguro: 'B',
+      tiposeguro: '2',
+      cobertura: 200.0,
+      valoranual: 2.0,
+      nomeapolice: "B",
+      duracao: 2,
       active: true,
-      tiposeguro: 2,
-      preco: 20000,
-      valoranual: 20,
     ),
-    TipoDeSeguro(
+    Apolices(
       nomeseguradora: 'A',
-      nomeapolice: 'C',
+      nometomador: 'Tomador C',
+      muradatomador: 'Murada Tomador C',
+      idadetomador: 3,
       nomeseguro: 'C',
-      active: true,
-      tiposeguro: 3,
-      preco: 30000,
-      valoranual: 30,
+      tiposeguro: '3',
+      cobertura: 300.0,
+      valoranual: 3.0,
+      nomeapolice: "C",
+      duracao: 3,
+      active: false,
     ),
-    TipoDeSeguro(
+    Apolices(
       nomeseguradora: 'B',
-      nomeapolice: 'D',
+      nometomador: 'Tomador D',
+      muradatomador: 'Murada Tomador D',
+      idadetomador: 4,
       nomeseguro: 'D',
-      active: true,
-      tiposeguro: 4,
-      preco: 40000,
-      valoranual: 40,
+      tiposeguro: '4',
+      cobertura: 400.0,
+      valoranual: 4.0,
+      nomeapolice: "D",
+      duracao: 4,
+      active: false,
     ),
-    TipoDeSeguro(
-      nomeseguradora: 'B',
-      nomeapolice: 'E',
+    Apolices(
+      nomeseguradora: 'A',
+      nometomador: 'Tomador E',
+      muradatomador: 'Murada Tomador E',
+      idadetomador: 5,
       nomeseguro: 'E',
+      tiposeguro: '5',
+      cobertura: 500.0,
+      valoranual: 5.0,
+      nomeapolice: "E",
+      duracao: 5,
       active: true,
-      tiposeguro: 5,
-      preco: 50000,
-      valoranual: 50,
     ),
-    TipoDeSeguro(
+    Apolices(
       nomeseguradora: 'B',
-      nomeapolice: 'E',
-      nomeseguro: 'E',
+      nometomador: 'Tomador F',
+      muradatomador: 'Murada Tomador F',
+      idadetomador: 6,
+      nomeseguro: 'F',
+      tiposeguro: '6',
+      cobertura: 600.0,
+      valoranual: 6.0,
+      nomeapolice: "F",
+      duracao: 6,
       active: true,
-      tiposeguro: 6,
-      preco: 60000,
-      valoranual: 60,
     )
   ];
 
@@ -189,32 +189,32 @@ void main() {
     Segurado(
       nometomador: 'A',
       nomesegurado: 'a',
-      tiposegurado: 1,
+      tiposegurado: '1',
     ),
     Segurado(
       nometomador: 'B',
       nomesegurado: 'b',
-      tiposegurado: 2,
+      tiposegurado: '2',
     ),
     Segurado(
       nometomador: 'C',
       nomesegurado: 'c',
-      tiposegurado: 3,
+      tiposegurado: '3',
     ),
     Segurado(
       nometomador: 'D',
       nomesegurado: 'd',
-      tiposegurado: 4,
+      tiposegurado: '4',
     ),
     Segurado(
       nometomador: 'E',
       nomesegurado: 'e',
-      tiposegurado: 5,
+      tiposegurado: '5',
     ),
     Segurado(
       nometomador: 'F',
       nomesegurado: 'f',
-      tiposegurado: 6,
+      tiposegurado: '6',
     )
   ];
   do {
@@ -230,23 +230,27 @@ void main() {
         print("Activas: ");
         apolices.where((e) => e.active == true).forEach((e) => print(
               '''\n
-      Apolice:
-        Seguradora: ${e.nomeseguradora}
-        Nome: ${e.nomeapolice}
-        Tipo: ${e.tipo}
-        Valor Prémio: ${e.valorpremio}
-        Duração: ${e.duracao}(s)\n''',
+    Apolice: 
+      Seguradora: ${e.nomeseguradora}
+      Tomador: ${e.nometomador}
+      Tipo de seguro: ${e.tiposeguro}
+      Nome: ${e.nomeapolice}
+      Cobertura: ${e.cobertura}
+      Valor Anual: ${e.valoranual}
+      Duração: ${e.duracao} ano(s)''',
             ));
 
         print("Inativas: ");
         apolices.where((e) => e.active == false).forEach((e) => print(
               '''\n
-      Apolice:
-        Seguradora: ${e.nomeseguradora}
-        Nome: ${e.nomeapolice}
-        Tipo: ${e.tipo}
-        Valor Prémio: ${e.valorpremio}
-        Duração: ${e.duracao}(s)\n''',
+    Apolice: 
+      Seguradora: ${e.nomeseguradora}
+      Tomador: ${e.nometomador}
+      Tipo de seguro: ${e.tiposeguro}
+      Nome: ${e.nomeapolice}
+      Cobertura: ${e.cobertura}
+      Valor Anual: ${e.valoranual}
+      Duração: ${e.duracao} ano(s)''',
             ));
         break;
 
@@ -260,16 +264,16 @@ void main() {
         apolices
             .where((e) => e.nomeseguradora == 'A' && e.active == true)
             .forEach((e) => {
-                  sum += e.valorpremio,
+                  sum += e.valoranual,
                   counter++,
                 });
 
         sum = sum / counter;
-        print('A seguradora A tem o valor médio de: $sum');
+        print('A seguradora A tem o valor médio anual de: $sum');
         apolices
             .where((e) => e.nomeseguradora == 'B' && e.active == true)
             .forEach((e) => {
-                  sum1 += e.valorpremio,
+                  sum1 += e.valoranual,
                   counter1++,
                 });
         sum1 = sum1 / counter1;
@@ -280,12 +284,12 @@ void main() {
       case 3:
         double sum = 0;
         int counter = 0;
-        tiposeguros.where((e) => e.active == true).forEach((e) => {
-              sum += e.preco,
+        apolices.where((e) => e.active == true).forEach((e) => {
+              sum += e.valoranual,
               counter++,
             });
         sum = sum / counter;
-        print('O valor médio dos seguros é: $sum');
+        print('O valor médio anual dos seguros é: $sum');
         break;
 
       // relatório de apolices ativas por
@@ -296,23 +300,15 @@ void main() {
               print('A seguradora ${j.nomeseguradora} tem as apólices:'),
               apolices
                   .where((e) =>
-                      e.nomeseguradora == 'A' &&
-                      e.nomeseguradora == j.nomeseguradora &&
-                      e.active == true)
+                      e.nomeseguradora == j.nomeseguradora && e.active == true)
                   .forEach((e) => print(
                         '''
+      Tomador: ${e.nometomador}
+      Tipo de seguro: ${e.tiposeguro}
       Nome: ${e.nomeapolice}
-      Tipo: ${e.tipo}\n''',
-                      )),
-              apolices
-                  .where((e) =>
-                      e.nomeseguradora == 'B' &&
-                      e.nomeseguradora == j.nomeseguradora &&
-                      e.active == true)
-                  .forEach((e) => print(
-                        '''
-      Nome: ${e.nomeapolice}
-      Tipo: ${e.tipo}\n''',
+      Cobertura: ${e.cobertura}
+      Valor Anual: ${e.valoranual}
+      Duração: ${e.duracao} ano(s)\n''',
                       )),
             });
         break;
@@ -325,80 +321,24 @@ void main() {
       case 6:
         double sum = 0;
         apolices.where((e) => e.active == true).forEach((e) {
-          sum += e.valorpremio;
+          sum += e.cobertura;
         });
         print('O total valor dos prémios das apólices é: $sum€');
         break;
 
       //quem tem a apolices, nome, idade, murada
       case 7:
-        apolices.where((j) => j.nomeapolice != null).forEach((j) => {
-              print('A apolice ${j.nomeapolice} tem os tomadores:'),
-              tomadores
-                  .where((e) =>
-                      e.nomeapolice == 'A' &&
-                      e.nomeapolice == j.nomeapolice &&
-                      e.active == true)
+        tomadores.where((j) => j.nometomador != null).forEach((j) => {
+              print('O Tomador ${j.nometomador} tem as Apólices:'),
+              apolices
+                  .where(
+                      (e) => e.nometomador == j.nometomador && e.active == true)
                   .forEach((e) => print(
                         '''
-      Nome: ${e.nometomador}
+      Apólice: ${e.nomeapolice}
       Murada: ${e.muradatomador}
-      Idade: ${e.idade}\n''',
-                      )),
-              tomadores
-                  .where((e) =>
-                      e.nomeapolice == 'B' &&
-                      e.nomeapolice == j.nomeapolice &&
-                      e.active == true)
-                  .forEach((e) => print(
-                        '''
-      Nome: ${e.nometomador}
-      Murada: ${e.muradatomador}
-      Idade: ${e.idade}\n''',
-                      )),
-              tomadores
-                  .where((e) =>
-                      e.nomeapolice == 'C' &&
-                      e.nomeapolice == j.nomeapolice &&
-                      e.active == true)
-                  .forEach((e) => print(
-                        '''
-      Nome: ${e.nometomador}
-      Murada: ${e.muradatomador}
-      Idade: ${e.idade}\n''',
-                      )),
-              tomadores
-                  .where((e) =>
-                      e.nomeapolice == 'D' &&
-                      e.nomeapolice == j.nomeapolice &&
-                      e.active == true)
-                  .forEach((e) => print(
-                        '''
-      Nome: ${e.nometomador}
-      Murada: ${e.muradatomador}
-      Idade: ${e.idade}\n''',
-                      )),
-              tomadores
-                  .where((e) =>
-                      e.nomeapolice == 'E' &&
-                      e.nomeapolice == j.nomeapolice &&
-                      e.active == true)
-                  .forEach((e) => print(
-                        '''
-      Nome: ${e.nometomador}
-      Murada: ${e.muradatomador}
-      Idade: ${e.idade}\n''',
-                      )),
-              tomadores
-                  .where((e) =>
-                      e.nomeapolice == 'F' &&
-                      e.nomeapolice == j.nomeapolice &&
-                      e.active == true)
-                  .forEach((e) => print(
-                        '''
-      Nome: ${e.nometomador}
-      Murada: ${e.muradatomador}
-      Idade: ${e.idade}\n''',
+      Idade: ${e.idadetomador}
+      ''',
                       )),
             });
         break;

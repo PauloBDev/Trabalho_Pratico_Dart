@@ -1,32 +1,32 @@
+import 'package:trabalho1/tiposeguros.dart';
+
 import 'apolices.dart';
 
-class Tomador extends Apolices {
+class Tomador extends TipoDeSeguro {
   String? nometomador;
   String? muradatomador;
-  int? idade;
+  int? idadetomador;
 
   Tomador({
     nomeseguradora,
-    nomeapolice,
-    valorpremio,
-    active,
+    nomeseguro,
+    tiposeguro,
     this.nometomador,
     this.muradatomador,
-    this.idade,
+    this.idadetomador,
   }) : super(
           nomeseguradora: nomeseguradora,
-          nomeapolice: nomeapolice,
-          valorpremio: valorpremio,
-          active: active,
+          tiposeguro: tiposeguro,
+          nomeseguro: nomeseguro,
         );
   @override
   String toString() {
     return '''\n
     Apolice: 
       Seguradora: $nomeseguradora
-      Apólice: $nomeapolice
+      Tipo de Seguro: $tiposeguro
       Nome: $nometomador
       Murada: $muradatomador 
-      Idade: $idade''';
+      Idade: $idadetomador''';
   }
 }
