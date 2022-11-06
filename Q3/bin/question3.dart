@@ -263,6 +263,8 @@ void main() {
         print('Numero de Apólices: ${apolices.length}\n');
         //correr a lista de seguradoras
         seguradoras.where((j) => j.nomeseguradora != null).forEach((j) => {
+              sum = 0,
+              counter = 0,
               //correr as apolices
               apolices
                   .where((e) =>
@@ -271,16 +273,14 @@ void main() {
                         //calculo da média do valor anual das apolices para cada
                         //seguradora
                         sum += e.valoranual,
-                        print('Sum: $sum'),
-                        counter++, //tentar perceber o valor dado
-                        print('Counter: $counter'),
+                        counter++,
                         sum1 = sum / counter,
-                        print('Sum1: $sum1'),
-                        print('Number of runs: $counter\n'),
                       }),
+
               print(
                   'A seguradora ${j.nomeseguradora} tem o valor médio anual de: $sum1\n'),
             });
+        print(sum1);
         // sum1 = sum / counter;
         // print('A seguradora A tem o valor médio anual de: $sum');
         // apolices
