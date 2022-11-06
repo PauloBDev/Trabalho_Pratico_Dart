@@ -260,24 +260,38 @@ void main() {
         int counter1 = 0;
         double sum = 0;
         double sum1 = 0;
-        print('Numero de Apólices: ${apolices.length}');
-        apolices
-            .where((e) => e.nomeseguradora == 'A' && e.active == true)
-            .forEach((e) => {
-                  sum += e.valoranual,
-                  counter++,
-                });
+        print('Numero de Apólices: ${apolices.length}\n');
+        //correr a lista de seguradoras
+        seguradoras.where((j) => j.nomeseguradora != null).forEach((j) => {
+              //correr as apolices
+              apolices
+                  .where((e) =>
+                      e.nomeseguradora == j.nomeseguradora && e.active == true)
+                  .forEach((e) => {
+                        //calculo da média do valor anual das apolices para cada
+                        //seguradora
+                        sum += e.valoranual,
+                        print('Sum: $sum'),
+                        counter++, //tentar perceber o valor dado
+                        print('Counter: $counter'),
+                        sum1 = sum / counter,
+                        print('Sum1: $sum1'),
+                        print('Number of runs: $counter\n'),
+                      }),
+              print(
+                  'A seguradora ${j.nomeseguradora} tem o valor médio anual de: $sum1\n'),
+            });
+        // sum1 = sum / counter;
+        // print('A seguradora A tem o valor médio anual de: $sum');
+        // apolices
+        //     .where((e) => e.nomeseguradora == 'B' && e.active == true)
+        //     .forEach((e) => {
+        //           sum1 += e.valoranual,
+        //           counter1++,
+        //         });
+        // sum1 = sum1 / counter1;
+        // print('A seguradora B tem o valor médio anual de: $sum1');
 
-        sum = sum / counter;
-        print('A seguradora A tem o valor médio anual de: $sum');
-        apolices
-            .where((e) => e.nomeseguradora == 'B' && e.active == true)
-            .forEach((e) => {
-                  sum1 += e.valoranual,
-                  counter1++,
-                });
-        sum1 = sum1 / counter1;
-        print('A seguradora B tem o valor médio de: $sum1');
         break;
 
       //numero de apolices e valor medio por seguro
@@ -328,10 +342,14 @@ void main() {
 
       //quem tem a apolices, nome, idade, murada
       case 7:
+        //correr a lista de tomadores
         tomadores.where((j) => j.nometomador != null).forEach((j) => {
               print('O Tomador ${j.nometomador} tem as Apólices:'),
+              //correra lista de apolices que extends tomadores
               apolices
                   .where(
+                      //verificar se é o tomador que estamos a querer usar e
+                      //se é uma apolice activa
                       (e) => e.nometomador == j.nometomador && e.active == true)
                   .forEach((e) => print(
                         '''
