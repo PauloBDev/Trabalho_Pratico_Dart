@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:trabalho1/seguradoras.dart';
 import 'package:trabalho1/apolices.dart';
 import 'package:trabalho1/tomadores.dart';
@@ -168,7 +169,7 @@ void main() {
       nomeseguro: 'E',
       tiposeguro: '5',
       cobertura: 500.0,
-      valoranual: 5.0,
+      valoranual: 10.0,
       nomeapolice: "E",
       duracao: 5,
       active: true,
@@ -181,7 +182,7 @@ void main() {
       nomeseguro: 'F',
       tiposeguro: '6',
       cobertura: 600.0,
-      valoranual: 6.0,
+      valoranual: 12.0,
       nomeapolice: "F",
       duracao: 6,
       active: true,
@@ -288,6 +289,33 @@ void main() {
 
       //numero de apolices e valor medio por seguradora
       case 2:
+        double max = 0.0;
+        double min = 0.0;
+        String seguro = '';
+        apolices
+            .where((e) => e.active == true && max < e.valoranual)
+            .forEach((e) {
+          max = e.valoranual;
+          seguro = e.nomeseguro;
+          if (max > e.valoranual) {
+            max = e.valoranual;
+            seguro = e.nomeseguro;
+          }
+          print(max);
+        });
+        print('maximo $max do tipo $seguro');
+        apolices
+            .where((e) => e.active == true && min > e.valoranual)
+            .forEach((e) {
+          min = e.valoranual;
+          seguro = e.nomeseguro;
+          if (min < e.valoranual) {
+            min = e.valoranual;
+            seguro = e.nomeseguro;
+          }
+        });
+
+        print('minimo $min do tipo $seguro');
         int counter = 0;
         int counter1 = 0;
         double sum = 0;
@@ -404,6 +432,7 @@ void menuPrincipal() {
   print('4. Apólices por tipo.');
   print('5. Apólices por tomador');
   print('6. Análise das coberturas e valor anual');
+  print('7. Adicionar elementos.');
 
   print('\n1. Active and Innactive policies.');
   print('2. Average price of active poilicies by insurance.');
@@ -430,6 +459,7 @@ void menuValoresAnuais() {
   print('-------------------Valor Anual----------------------- ');
   print('\n1. Por Seguradora.');
   print('2. Por tipo de seguro.\n');
+  print('3. <-- Voltar.\n');
 }
 
 void menuAnalise() {
@@ -441,4 +471,15 @@ void menuAnalise() {
     '4. Para cada seguradora o maior e menor valor de cobertura e valor anual.',
   );
   print('5. Total cobertura e valor anual por seguradora.\n');
+  print('6. <-- Voltar.\n');
+}
+
+void menuAdicionar() {
+  print('-------------------Adicionar----------------------- ');
+  print('\n1.Seguradora.');
+  print('2. Tipos de Seguros.');
+  print('3. Tomadores.');
+  print('4. Apólices.');
+  print('5. Segurados.');
+  print('6. <-- Voltar.\n');
 }
