@@ -117,7 +117,7 @@ void main() {
       nomeseguro: 'A',
       tiposeguro: '1',
       cobertura: 100.0,
-      valoranual: 1.0,
+      valoranual: 3000.0,
       nomeapolice: "A",
       duracao: 1,
       active: true,
@@ -130,7 +130,7 @@ void main() {
       nomeseguro: 'B',
       tiposeguro: '2',
       cobertura: 200.0,
-      valoranual: 2.0,
+      valoranual: 90.0,
       nomeapolice: "B",
       duracao: 2,
       active: true,
@@ -143,7 +143,7 @@ void main() {
       nomeseguro: 'C',
       tiposeguro: '3',
       cobertura: 300.0,
-      valoranual: 3.0,
+      valoranual: 88.0,
       nomeapolice: "C",
       duracao: 3,
       active: false,
@@ -156,7 +156,7 @@ void main() {
       nomeseguro: 'D',
       tiposeguro: '4',
       cobertura: 400.0,
-      valoranual: 4.0,
+      valoranual: 16.0,
       nomeapolice: "D",
       duracao: 4,
       active: false,
@@ -169,7 +169,7 @@ void main() {
       nomeseguro: 'E',
       tiposeguro: '5',
       cobertura: 500.0,
-      valoranual: 10.0,
+      valoranual: 300.0,
       nomeapolice: "E",
       duracao: 5,
       active: true,
@@ -182,7 +182,7 @@ void main() {
       nomeseguro: 'F',
       tiposeguro: '6',
       cobertura: 600.0,
-      valoranual: 12.0,
+      valoranual: 3.0,
       nomeapolice: "F",
       duracao: 6,
       active: true,
@@ -290,14 +290,15 @@ void main() {
       //numero de apolices e valor medio por seguradora
       case 2:
         double max = 0.0;
-        double min = 0.0;
+        double min = apolices[0].valoranual;
         String seguro = '';
+        String seguromin = apolices[0].nomeseguro;
         apolices
             .where((e) => e.active == true && max < e.valoranual)
             .forEach((e) {
           max = e.valoranual;
           seguro = e.nomeseguro;
-          if (max > e.valoranual) {
+          if (max < e.valoranual) {
             max = e.valoranual;
             seguro = e.nomeseguro;
           }
@@ -307,15 +308,14 @@ void main() {
             .where((e) => e.active == true && min > e.valoranual)
             .forEach((e) {
           min = e.valoranual;
-          seguro = e.nomeseguro;
+          seguromin = e.nomeseguro;
           if (min > e.valoranual) {
             min = e.valoranual;
-            seguro = e.nomeseguro;
+            seguromin = e.nomeseguro;
           }
-          print(min);
         });
 
-        print('minimo $min do tipo $seguro');
+        print('minimo $min do tipo $seguromin');
         int counter = 0;
         int counter1 = 0;
         double sum = 0;
