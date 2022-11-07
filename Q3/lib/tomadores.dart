@@ -6,6 +6,8 @@ class Tomador extends TipoDeSeguro {
   String? nometomador;
   String? muradatomador;
   int? idadetomador;
+  String? nomesegurado;
+  String? tiposegurado;
 
   Tomador({
     nomeseguradora,
@@ -14,6 +16,8 @@ class Tomador extends TipoDeSeguro {
     this.nometomador,
     this.muradatomador,
     this.idadetomador,
+    this.nomesegurado,
+    this.tiposegurado,
   }) : super(
           nomeseguradora: nomeseguradora,
           tiposeguro: tiposeguro,
