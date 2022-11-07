@@ -301,7 +301,6 @@ void main() {
             max = e.valoranual;
             seguro = e.nomeseguro;
           }
-          print(max);
         });
         print('maximo $max do tipo $seguro');
         apolices
@@ -309,10 +308,11 @@ void main() {
             .forEach((e) {
           min = e.valoranual;
           seguro = e.nomeseguro;
-          if (min < e.valoranual) {
+          if (min > e.valoranual) {
             min = e.valoranual;
             seguro = e.nomeseguro;
           }
+          print(min);
         });
 
         print('minimo $min do tipo $seguro');
