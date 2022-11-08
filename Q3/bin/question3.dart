@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 import 'package:trabalho1/seguradoras.dart';
 import 'package:trabalho1/apolices.dart';
@@ -6,198 +5,218 @@ import 'package:trabalho1/tomadores.dart';
 import 'package:trabalho1/tiposeguros.dart';
 
 void main() {
+  Seguradora defaulted = Seguradora();
+  defaulted
+    ..nomeseguradora = 'default nome seguradora'
+    ..muradaseguradora = 'default murada seguradora'
+    ..ano = 1111;
+
   int menuprincipal = 0;
   int detalhes = 0;
   int analise = 0;
   int adicionar = 0;
   List seguradoras = [
     Seguradora(
-      nomeseguradora: 'A',
-      muradaseguradora: "Seguradora A murada",
-      ano: 1990,
+      nomeseguradora: 'Allianz',
+      muradaseguradora: "R. Mergunhos 154 R/C, 4410-389 Arcozelo",
+      ano: 1890,
     ),
     Seguradora(
-      nomeseguradora: 'B',
-      muradaseguradora: "Seguradora B murada",
-      ano: 1990,
+      nomeseguradora: 'Bradesco',
+      muradaseguradora:
+          " Av. Santos Dumont, 3581 - Manuel Dias Branco, Fortaleza",
+      ano: 1943,
     )
   ];
 
   List tiposeguros = [
     TipoDeSeguro(
-      nomeseguradora: 'A',
-      nomeseguro: 'A',
-      tiposeguro: '1',
+      nomeseguradora: 'Allianz',
+      nomeseguro: 'Vida Longa',
+      tiposeguro: 'Vida',
     ),
     TipoDeSeguro(
-      nomeseguradora: 'A',
-      nomeseguro: 'B',
-      tiposeguro: '2',
+      nomeseguradora: 'Allianz',
+      nomeseguro: 'Automovel Seguro',
+      tiposeguro: 'Auto',
     ),
     TipoDeSeguro(
-      nomeseguradora: 'A',
-      nomeseguro: 'C',
-      tiposeguro: '3',
+      nomeseguradora: 'Allianz',
+      nomeseguro: 'Casamentos felizes é o mais importante',
+      tiposeguro: 'Patrimonial',
     ),
     TipoDeSeguro(
-      nomeseguradora: 'B',
-      nomeseguro: 'D',
-      tiposeguro: '4',
+      nomeseguradora: 'Bradesco',
+      nomeseguro: 'Casa é onde os sonhos estão',
+      tiposeguro: 'Residencial',
     ),
     TipoDeSeguro(
-      nomeseguradora: 'B',
-      nomeseguro: 'E',
-      tiposeguro: '5',
+      nomeseguradora: 'Bradesco',
+      nomeseguro: 'Viagar faz bem',
+      tiposeguro: 'Viagem',
     ),
     TipoDeSeguro(
-      nomeseguradora: 'B',
-      nomeseguro: 'E',
-      tiposeguro: '6',
+      nomeseguradora: 'Bradesco',
+      nomeseguro: 'Saúde para todos',
+      tiposeguro: 'Saúde',
     )
   ];
 
   List tomadores = [
     Tomador(
-      nomeseguradora: 'A',
-      nomeseguro: 'A',
-      tiposeguro: '1',
-      nometomador: 'Tomador A',
-      muradatomador: 'Murada Tomador A',
-      idadetomador: 1,
-      nomesegurado: 'a',
-      tiposegurado: '1',
+      nomeseguradora: 'Allianz',
+      nomeseguro: 'Vida Longa',
+      tiposeguro: 'Vida',
+      nometomador: 'Paulo Bernardino',
+      muradatomador: 'Travessa do Paraíso',
+      idadetomador: 29,
+      nomesegurado: 'Paulo Bernardino',
+      tiposegurado: 'Pessoal',
     ),
     Tomador(
-      nomeseguradora: 'A',
-      nomeseguro: 'B',
-      tiposeguro: '2',
-      nometomador: 'Tomador B',
-      muradatomador: 'Murada Tomador B',
-      idadetomador: 2,
-      nomesegurado: 'b',
-      tiposegurado: '2',
+      nomeseguradora: 'Allianz',
+      nomeseguro: 'Automovel Seguro',
+      tiposeguro: 'Auto',
+      nometomador: 'Pedro Alves',
+      muradatomador: 'Ermida de Nossa Senhora',
+      idadetomador: 44,
+      nomesegurado: 'Toyota 2000',
+      tiposegurado: 'Carro',
     ),
     Tomador(
-      nomeseguradora: 'A',
-      nomeseguro: 'C',
-      tiposeguro: '3',
-      nometomador: 'Tomador C',
-      muradatomador: 'Murada Tomador C',
-      idadetomador: 3,
-      nomesegurado: 'c',
-      tiposegurado: '3',
+      nomeseguradora: 'Allianz',
+      nomeseguro: 'Casamentos felizes é o mais importante',
+      tiposeguro: 'Patrimonial',
+      nometomador: 'Alexandre Machado',
+      muradatomador: 'Rua dos Sete Céus',
+      idadetomador: 74,
+      nomesegurado: 'Alexandre Machado',
+      tiposegurado: 'Pessoal',
     ),
     Tomador(
-      nomeseguradora: 'B',
-      nomeseguro: 'D',
-      tiposeguro: '4',
-      nometomador: 'Tomador D',
-      muradatomador: 'Murada Tomador D',
-      idadetomador: 4,
-      nomesegurado: 'd',
-      tiposegurado: '4',
+      nomeseguradora: 'Bradesco',
+      nomeseguro: 'Casa é onde os sonhos estão',
+      tiposeguro: 'Residencial',
+      nometomador: 'Pedro Gonçalves',
+      muradatomador: 'Beco do Belo',
+      idadetomador: 20,
+      nomesegurado: 'Apartamento 5D',
+      tiposegurado: 'Casa',
     ),
     Tomador(
-      nomeseguradora: 'B',
-      nomeseguro: 'E',
-      tiposeguro: '5',
-      nometomador: 'Tomador E',
-      muradatomador: 'Murada Tomador E',
-      idadetomador: 5,
-      nomesegurado: 'e',
-      tiposegurado: '5',
+      nomeseguradora: 'Bradesco',
+      nomeseguro: 'Viagar faz bem',
+      tiposeguro: 'Viagem',
+      nometomador: 'Paula Gomes',
+      muradatomador: 'Rua do Açúcar',
+      idadetomador: 18,
+      nomesegurado: 'Paula Gomes',
+      tiposegurado: 'Pessoal',
     ),
     Tomador(
-      nomeseguradora: 'B',
-      nomeseguro: 'F',
-      tiposeguro: '6',
-      nometomador: 'Tomador F',
-      muradatomador: 'Murada Tomador F',
-      idadetomador: 6,
-      nomesegurado: 'f',
-      tiposegurado: '6',
+      nomeseguradora: 'Bradesco',
+      nomeseguro: 'Saúde para todos',
+      tiposeguro: 'Saúde',
+      nometomador: 'Ana Luis',
+      muradatomador: 'Travessa da Amorosa',
+      idadetomador: 33,
+      nomesegurado: 'Ana Luis',
+      tiposegurado: 'Pessoal',
     )
   ];
 
   List apolices = [
     Apolices(
-      nomeseguradora: 'A',
-      nometomador: 'Tomador A',
-      muradatomador: 'Murada Tomador A',
-      idadetomador: 1,
-      nomeseguro: 'A',
-      tiposeguro: '6',
-      cobertura: 1000.0,
-      valoranual: 3000.0,
-      nomeapolice: "A",
+      nomeseguradora: 'Allianz',
+      nometomador: 'Paulo Bernardino',
+      muradatomador: 'Travessa do Paraíso',
+      idadetomador: 29,
+      nomeseguro: 'Vida Longa',
+      tiposeguro: 'Vida',
+      cobertura: 5005000.0,
+      valoranual: 20000.0,
+      nomeapolice: "Apólice de Vida Paulo Bernardino",
+      duracao: 100,
+      active: true,
+    ),
+    Apolices(
+      nomeseguradora: 'Bradesco',
+      nometomador: 'Pedro Alves',
+      muradatomador: 'Ermida de Nossa Senhora',
+      idadetomador: 44,
+      nomeseguro: 'Automovel Seguro',
+      tiposeguro: 'Auto',
+      cobertura: 5000.0,
+      valoranual: 400.23,
+      nomeapolice: "Apólice de Carro Pedro Alves",
+      duracao: 20,
+      active: true,
+    ),
+    Apolices(
+      nomeseguradora: 'Allianz',
+      nometomador: 'Alexandre Machado',
+      muradatomador: 'Rua dos Sete Céus',
+      idadetomador: 74,
+      nomeseguro: 'Casamentos felizes é o mais importante',
+      tiposeguro: 'Patrimonial',
+      cobertura: 40000.0,
+      valoranual: 500.5,
+      nomeapolice: "Apólice Patrimonial Alexandre Machado",
+      duracao: 100,
+      active: false,
+    ),
+    Apolices(
+      nomeseguradora: 'Bradesco',
+      nometomador: 'Pedro Gonçalves',
+      muradatomador: 'Beco do Belo',
+      idadetomador: 20,
+      nomeseguro: 'Casa é onde os sonhos estão',
+      tiposeguro: 'Residencial',
+      cobertura: 60000.0,
+      valoranual: 1013.6,
+      nomeapolice: "Apólice Residencial Pedro Gonçalves",
+      duracao: 50,
+      active: false,
+    ),
+    Apolices(
+      nomeseguradora: 'Allianz',
+      nometomador: 'Paula Gomes',
+      muradatomador: 'Rua do Açúcar',
+      idadetomador: 18,
+      nomeseguro: 'Viagar faz bem',
+      tiposeguro: 'Viagem',
+      cobertura: 2000.0,
+      valoranual: 150.8,
+      nomeapolice: "Apólice Viagem Paula Gomes",
       duracao: 1,
       active: true,
     ),
     Apolices(
-      nomeseguradora: 'B',
-      nometomador: 'Tomador B',
-      muradatomador: 'Murada Tomador B',
-      idadetomador: 2,
-      nomeseguro: 'B',
-      tiposeguro: '6',
-      cobertura: 200.0,
-      valoranual: 90.0,
-      nomeapolice: "B",
-      duracao: 2,
-      active: true,
-    ),
-    Apolices(
-      nomeseguradora: 'A',
-      nometomador: 'Tomador C',
-      muradatomador: 'Murada Tomador C',
-      idadetomador: 3,
-      nomeseguro: 'C',
-      tiposeguro: '3',
-      cobertura: 300.0,
-      valoranual: 88.0,
-      nomeapolice: "C",
-      duracao: 3,
-      active: false,
-    ),
-    Apolices(
-      nomeseguradora: 'B',
-      nometomador: 'Tomador D',
-      muradatomador: 'Murada Tomador D',
-      idadetomador: 4,
-      nomeseguro: 'D',
-      tiposeguro: '4',
-      cobertura: 1000.0,
-      valoranual: 16.0,
-      nomeapolice: "D",
-      duracao: 4,
-      active: false,
-    ),
-    Apolices(
-      nomeseguradora: 'A',
-      nometomador: 'Tomador E',
-      muradatomador: 'Murada Tomador E',
-      idadetomador: 5,
-      nomeseguro: 'E',
-      tiposeguro: '6',
-      cobertura: 500.0,
-      valoranual: 300.0,
-      nomeapolice: "E",
+      nomeseguradora: 'Bradesco',
+      nometomador: 'Ana Luis',
+      muradatomador: 'Travessa da Amorosa',
+      idadetomador: 33,
+      nomeseguro: 'Saúde para todos',
+      tiposeguro: 'Saúde',
+      cobertura: 10000.0,
+      valoranual: 2010.2,
+      nomeapolice: "Apólice Saúde Ana Luis",
       duracao: 5,
       active: true,
     ),
     Apolices(
-      nomeseguradora: 'B',
-      nometomador: 'Tomador F',
-      muradatomador: 'Murada Tomador F',
-      idadetomador: 6,
-      nomeseguro: 'F',
-      tiposeguro: '6',
-      cobertura: 900.0,
-      valoranual: 3.0,
-      nomeapolice: "F",
-      duracao: 6,
+      nomeseguradora: 'Bradesco',
+      nometomador: 'Nadine Luis',
+      muradatomador: 'Travessa da Saúde',
+      idadetomador: 30,
+      nomeseguro: 'Saúde para todos',
+      tiposeguro: 'Saúde',
+      cobertura: 20000.0,
+      valoranual: 1010.2,
+      nomeapolice: "Apólice Saúde Nadine Luis",
+      duracao: 8,
       active: true,
-    )
+    ),
   ];
   do {
     //pushar o menu
@@ -692,7 +711,6 @@ void main() {
                             min = e.cobertura;
                             seguradoramin = e.nomeseguradora;
                           }
-                          print(min);
                         }),
                         apolices
                             .where((e) =>
@@ -864,7 +882,7 @@ void main() {
 
 void menuPrincipal() {
   //menu
-  print('\n-------------------Surprises EXIST!----------------------- ');
+  print('\n-------------------Surpresas Existem!!----------------------- ');
   print('\n1. Detalhes sobre as várias areas.');
   print('2. Qual é o seguro mais barato e o mais caro?');
   print('3. Quanto é a média dos valores anuais?');
