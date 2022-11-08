@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:trabalho1/seguradoras.dart';
 import 'package:trabalho1/apolices.dart';
@@ -125,8 +126,8 @@ void main() {
       muradatomador: 'Murada Tomador A',
       idadetomador: 1,
       nomeseguro: 'A',
-      tiposeguro: '1',
-      cobertura: 100.0,
+      tiposeguro: '6',
+      cobertura: 1000.0,
       valoranual: 3000.0,
       nomeapolice: "A",
       duracao: 1,
@@ -138,7 +139,7 @@ void main() {
       muradatomador: 'Murada Tomador B',
       idadetomador: 2,
       nomeseguro: 'B',
-      tiposeguro: '2',
+      tiposeguro: '6',
       cobertura: 200.0,
       valoranual: 90.0,
       nomeapolice: "B",
@@ -177,7 +178,7 @@ void main() {
       muradatomador: 'Murada Tomador E',
       idadetomador: 5,
       nomeseguro: 'E',
-      tiposeguro: '5',
+      tiposeguro: '6',
       cobertura: 500.0,
       valoranual: 300.0,
       nomeapolice: "E",
@@ -483,7 +484,7 @@ void main() {
                     apolices
                         .where((e) =>
                             e.active == true &&
-                            max < e.valoranual &&
+                            max <= e.valoranual &&
                             e.tiposeguro == j.tiposeguro)
                         .forEach((e) {
                       max = e.valoranual;
@@ -506,7 +507,7 @@ void main() {
                     apolices
                         .where((e) =>
                             e.active == true &&
-                            min > e.valoranual &&
+                            min >= e.valoranual &&
                             e.tiposeguro == j.tiposeguro)
                         .forEach((e) {
                       min = e.valoranual;
@@ -536,7 +537,7 @@ void main() {
                     apolices
                         .where((e) =>
                             e.active == true &&
-                            max < e.cobertura &&
+                            max <= e.cobertura &&
                             e.tiposeguro == j.tiposeguro)
                         .forEach((e) {
                       max = e.cobertura;
@@ -559,7 +560,7 @@ void main() {
                     apolices
                         .where((e) =>
                             e.active == true &&
-                            min < e.cobertura &&
+                            min >= e.cobertura &&
                             e.tiposeguro == j.tiposeguro)
                         .forEach((e) {
                       min = e.cobertura;
@@ -587,7 +588,7 @@ void main() {
               double max = 0.0;
               double min = apolices[0].valoranual;
               String seguradora = '';
-              String seguradoramin = apolices[0].tiposeguro;
+              String seguradoramin = apolices[0].nomeseguradora;
               seguradoras
                   .where((j) => j.nomeseguradora != null)
                   .forEach((j) => {
@@ -596,57 +597,115 @@ void main() {
                         seguradora = '',
                         seguradoramin = apolices[0].nomeseguradora,
                         print(
-                          'O seguradora ${j.nomeseguradora} tem cobertura e valor anual de:',
+                          'A seguradora ${j.nomeseguradora}:',
                         ),
-                        //VALOR ANUAL ---------------------------------------
-                        //MAIOR-------------------------------------------
+                        // valor anual ------------------------------------
+                        // MAIOR ---------------------------------------
                         apolices
                             .where((e) =>
                                 e.active == true &&
-                                max < e.valoranual &&
+                                max <= e.valoranual &&
                                 e.nomeseguradora == j.nomeseguradora)
                             .forEach((e) {
                           max = e.valoranual;
-                          seguradoramin = e.nomeseguradora;
-                          if (max > e.valoranual) {
+                          seguradora = e.nomeseguradora;
+                          if (max < e.valoranual) {
                             max = e.valoranual;
+                            seguradora = e.nomeseguradora;
+                          }
+                        }),
+                        apolices
+                            .where((e) =>
+                                e.valoranual == max &&
+                                e.nomeseguradora == seguradora)
+                            .forEach((e) => print(
+                                  ''' Maior valor anual...
+      Seguradora: ${e.nomeseguradora}
+      Nome da Apólice: ${e.nomeapolice}
+      Valor Anual: ${e.valoranual}\n''',
+                                )),
+                        // MENOR -------------------------------------
+                        apolices
+                            .where((e) =>
+                                e.active == true &&
+                                min >= e.valoranual &&
+                                e.nomeseguradora == j.nomeseguradora)
+                            .forEach((e) {
+                          min = e.valoranual;
+                          seguradoramin = e.nomeseguradora;
+                          if (min > e.valoranual) {
+                            min = e.valoranual;
                             seguradoramin = e.nomeseguradora;
                           }
                         }),
                         apolices
                             .where((e) =>
+                                e.valoranual == min &&
+                                e.nomeseguradora == seguradoramin)
+                            .forEach((e) => print(
+                                  '''                     Menor valor anual...
+                            Seguradora: ${e.nomeseguradora}
+                            Nome da Apólice: ${e.nomeapolice}
+                            Valor Anual: ${e.valoranual}\n''',
+                                )),
+
+                        //cobertura--------------------------------
+                        //MAIOR ------------------------------------
+                        max = 0,
+                        min = apolices[0].cobertura,
+                        seguradora = '',
+                        seguradoramin = apolices[0].nomeseguradora,
+
+                        apolices
+                            .where((e) =>
                                 e.active == true &&
-                                e.valoranual == max &&
+                                max <= e.cobertura &&
+                                e.nomeseguradora == j.nomeseguradora)
+                            .forEach((e) {
+                          max = e.cobertura;
+                          seguradora = e.nomeseguradora;
+                          if (max < e.cobertura) {
+                            max = e.cobertura;
+                            seguradora = e.nomeseguradora;
+                          }
+                        }),
+                        apolices
+                            .where((e) =>
+                                e.cobertura == max &&
                                 e.nomeseguradora == seguradora)
                             .forEach((e) => print(
-                                  ''' Apolice com maior valor anual é...
+                                  ''' Maior cobertura...
+      Seguradora: ${e.nomeseguradora}
       Nome da Apólice: ${e.nomeapolice}
-      Valor Anual: ${e.valoranual}\n''',
+      Cobertura: ${e.cobertura}\n''',
                                 )),
-                        //MENOR ------------------------------------------
-                        //                   apolices
-                        //                       .where((e) =>
-                        //                           e.active == true &&
-                        //                           min > e.valoranual &&
-                        //                           e.nomeseguradora == j.nomeseguradora)
-                        //                       .forEach((e) {
-                        //                     min = e.valoranual;
-                        //                     seguradoramin = e.nomeseguradora;
-                        //                     if (min > e.valoranual) {
-                        //                       min = e.valoranual;
-                        //                       seguradoramin = e.nomeseguradora;
-                        //                     }
-                        //                   }),
-                        //                   apolices
-                        //                       .where((e) =>
-                        //                           e.active == true &&
-                        //                           e.valoranual == min &&
-                        //                           e.nomeseguradora == seguradoramin)
-                        //                       .forEach((e) => print(
-                        //                             ''' Apolice com menor valor anual é...
-                        // Nome da Apólice: ${e.nomeapolice}
-                        // Valor Anual: ${e.valoranual}\n''',
-                        //                           )),
+                        //MENOR-----------------------------------------
+                        apolices
+                            .where((e) =>
+                                e.active == true &&
+                                min > e.cobertura &&
+                                e.nomeseguradora == j.nomeseguradora)
+                            .forEach((e) {
+                          min = e.cobertura;
+                          seguradoramin = e.nomeseguradora;
+                          if (min > e.cobertura) {
+                            min = e.cobertura;
+                            seguradoramin = e.nomeseguradora;
+                          }
+                          print(min);
+                        }),
+                        apolices
+                            .where((e) =>
+                                e.cobertura == min &&
+                                e.nomeseguradora == seguradoramin)
+                            .forEach((e) => print(
+                                  '''                     Menor cobertura...
+                            Seguradora: ${e.nomeseguradora}
+                            Nome da Apólice: ${e.nomeapolice}
+                            Cobertura: ${e.cobertura}\n''',
+                                )),
+                        print(
+                            '-----------------------------------------------------')
                       });
               break;
             case 5:
