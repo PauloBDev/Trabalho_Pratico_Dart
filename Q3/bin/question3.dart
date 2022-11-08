@@ -5,16 +5,19 @@ import 'package:trabalho1/tomadores.dart';
 import 'package:trabalho1/tiposeguros.dart';
 
 void main() {
+  //criação de um default com cascade notation
   Seguradora defaulted = Seguradora();
   defaulted
     ..nomeseguradora = 'default nome seguradora'
     ..muradaseguradora = 'default murada seguradora'
     ..ano = 1111;
-
+  //declaração de variaveis para uso dos menus
   int menuprincipal = 0;
   int detalhes = 0;
   int analise = 0;
   int adicionar = 0;
+
+  //lista das seguradores
   List seguradoras = [
     Seguradora(
       nomeseguradora: 'Allianz',
@@ -28,7 +31,7 @@ void main() {
       ano: 1943,
     )
   ];
-
+  //lista das tipos de seguros
   List tiposeguros = [
     TipoDeSeguro(
       nomeseguradora: 'Allianz',
@@ -61,7 +64,7 @@ void main() {
       tiposeguro: 'Saúde',
     )
   ];
-
+  //lista das tomadores e segurados
   List tomadores = [
     Tomador(
       nomeseguradora: 'Allianz',
@@ -124,7 +127,7 @@ void main() {
       tiposegurado: 'Pessoal',
     )
   ];
-
+  //lista das apólices
   List apolices = [
     Apolices(
       nomeseguradora: 'Allianz',
@@ -175,7 +178,7 @@ void main() {
       cobertura: 60000.0,
       valoranual: 1013.6,
       nomeapolice: "Apólice Residencial Pedro Gonçalves",
-      duracao: 50,
+      duracao: 40,
       active: false,
     ),
     Apolices(
@@ -201,7 +204,7 @@ void main() {
       cobertura: 10000.0,
       valoranual: 2010.2,
       nomeapolice: "Apólice Saúde Ana Luis",
-      duracao: 5,
+      duracao: 1,
       active: true,
     ),
     Apolices(
@@ -214,10 +217,11 @@ void main() {
       cobertura: 20000.0,
       valoranual: 1010.2,
       nomeapolice: "Apólice Saúde Nadine Luis",
-      duracao: 8,
+      duracao: 0.6,
       active: true,
     ),
   ];
+
   do {
     //pushar o menu
     menuPrincipal();
@@ -228,23 +232,29 @@ void main() {
     switch (menuprincipal) {
       //numero de apolices ativas e inativas
       case 1:
+        //sub-menu para poder escolher o que quer ver das diferentes areas
         do {
           menuDetalhes();
           detalhes = int.parse(stdin.readLineSync()!);
           print('\n');
           switch (detalhes) {
+            //mostrar as seguradoras
             case 1:
               seguradoras.forEach((e) => print(e.toString()));
               break;
+            //mostrar as tipos de seguros presentes
             case 2:
               tiposeguros.forEach((e) => print(e.toString()));
               break;
+            //mostrar as tomadores
             case 3:
               tomadores.forEach((e) => print(e.toString()));
               break;
+            //mostrar as apólices
             case 4:
               apolices.forEach((e) => print(e.toString()));
               break;
+            //mostrar as segurados
             case 5:
               tomadores.forEach((e) => print(
                     '''Segurado: ${e.nomesegurado}
@@ -253,6 +263,8 @@ void main() {
             ''',
                   ));
               break;
+
+            //voltar atras
             case 6:
               print("\n");
               break;
@@ -263,31 +275,6 @@ void main() {
           }
         } while (detalhes != 6);
         break;
-      //print("Activas: ");
-      //     apolices.where((e) => e.active == true).forEach((e) => print(
-      //           '''\n
-      // Apolice:
-      //   Seguradora: ${e.nomeseguradora}
-      //   Tomador: ${e.nometomador}
-      //   Tipo de seguro: ${e.tiposeguro}
-      //   Nome: ${e.nomeapolice}
-      //   Cobertura: ${e.cobertura}
-      //   Valor Anual: ${e.valoranual}
-      //   Duração: ${e.duracao} ano(s)''',
-      //         ));
-
-      //print("Inativas: ");
-      //     apolices.where((e) => e.active == false).forEach((e) => print(
-      //           '''\n
-      // Apolice:
-      //   Seguradora: ${e.nomeseguradora}
-      //   Tomador: ${e.nometomador}
-      //   Tipo de seguro: ${e.tiposeguro}
-      //   Nome: ${e.nomeapolice}
-      //   Cobertura: ${e.cobertura}
-      //   Valor Anual: ${e.valoranual}
-      //   Duração: ${e.duracao} ano(s)''',
-      //         ));
 
       //numero de apolices e valor medio por seguradora
       case 2:
@@ -357,8 +344,15 @@ void main() {
           print('             -->$sum');
         });
         break;
-
       case 4:
+        print('Apólices ativas:\n');
+        apolices.where((e) => e.active == true).forEach((e) => print('''
+      ${e.toString()}\n'''));
+        print('Apólices inativas:\n');
+        apolices.where((e) => e.active == false).forEach((e) => print('''
+      ${e.toString()}\n'''));
+        break;
+      case 5:
         tiposeguros.where((j) => j.tiposeguro != null).forEach((j) => {
               print('O seguro de ${j.tiposeguro} tem as apólices: '),
               apolices
@@ -374,7 +368,7 @@ void main() {
             });
         break;
 
-      case 5:
+      case 6:
         tomadores.where((j) => j.nometomador != null).forEach((j) => {
               print('O tomador ${j.nometomador} tem as apólices: '),
               apolices
@@ -392,7 +386,7 @@ void main() {
             });
         break;
 
-      case 6:
+      case 7:
         do {
           menuAnalise();
           analise = int.parse(stdin.readLineSync()!); // ler o número escrito
@@ -417,7 +411,7 @@ void main() {
               apolices
                   .where((e) => e.cobertura == max && e.nomeseguro == seguro)
                   .forEach((e) => print(
-                        ''' Apolice com menor cobertura é...
+                        ''' Apolice com maior cobertura é...
               Tipo de Seguro: ${e.tiposeguro}
               Nome da Apolice: ${e.nomeapolice}
               Cobertura: ${e.cobertura}\n''',
@@ -751,7 +745,7 @@ void main() {
         } while (analise != 6);
         break;
       //quem tem a apolices, nome, idade, murada
-      case 7:
+      case 8:
         do {
           //pushar o menu
           menuAdicionar();
@@ -867,7 +861,7 @@ void main() {
         break;
 
       //exit
-      case 8:
+      case 9:
         print('                  Have a Good Day!');
         print("\n");
         break;
@@ -877,7 +871,7 @@ void main() {
         break;
     }
     //parar se for escolhido 8
-  } while (menuprincipal != 8);
+  } while (menuprincipal != 9);
 }
 
 void menuPrincipal() {
@@ -886,11 +880,12 @@ void menuPrincipal() {
   print('\n1. Detalhes sobre as várias areas.');
   print('2. Qual é o seguro mais barato e o mais caro?');
   print('3. Quanto é a média dos valores anuais?');
-  print('4. Apólices por tipo.');
-  print('5. Apólices por tomador');
-  print('6. Análise das coberturas e valor anual');
-  print('7. Adicionar elementos.');
-  print('8. Exit.\n');
+  print('4. Apólices activas e Inativas');
+  print('5. Apólices por tipo.');
+  print('6. Apólices por tomador');
+  print('7. Análise das coberturas e valor anual');
+  print('8. Adicionar elementos.');
+  print('9. Exit.\n');
 }
 
 void menuDetalhes() {
