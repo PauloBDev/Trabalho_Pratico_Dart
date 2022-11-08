@@ -830,7 +830,7 @@ void main() {
                 muradatomador: apoliceTomadormurada,
                 idadetomador: apoliceTomadoridade,
                 nomeseguro: apoliceSeguronome,
-                tiposeguro: apoliceSeguronome,
+                tiposeguro: apoliceTiposeguro,
                 cobertura: apolicecobertura,
                 valoranual: apolicevaloranual,
                 nomeapolice: apolicenome,
