@@ -18,7 +18,7 @@ void main() {
   int detalhes = 0;
   int analise = 0;
   int adicionar = 0;
-  //comment
+
   //lista das seguradores
   List seguradoras = [
     Seguradora(
