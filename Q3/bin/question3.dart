@@ -4,6 +4,7 @@ import 'package:trabalho1/apolices.dart';
 import 'package:trabalho1/tomadores.dart';
 import 'package:trabalho1/tiposeguros.dart';
 import 'package:trabalho1/metodos.dart';
+import 'package:trabalho1/lista_seguradores.dart';
 
 void main() {
   //criação de um default com cascade notation
@@ -281,74 +282,16 @@ void main() {
       //caso 2 do menu principal seguro mais caro e mais barato
       case 2:
         //-----------------------Seguro mais caro---------------------
-        double max = 0.0;
-        double min = apolices[0].valoranual;
-        String seguro = '';
-        String seguromin = apolices[0].nomeseguro;
-        apolices
-            .where((e) => e.active == true && max < e.valoranual)
-            .forEach((e) {
-          max = e.valoranual;
-          seguro = e.nomeseguro;
-          if (max < e.valoranual) {
-            max = e.valoranual;
-            seguro = e.nomeseguro;
-          }
-        });
-        apolices
-            .where((e) => e.valoranual == max && e.nomeseguro == seguro)
-            .forEach((e) => print(
-                  ''' Seguro mais caro é...
-      Nome do Seguro: ${e.nomeseguro}
-      Tipo de Seguro: ${e.tiposeguro}
-      Cobertura: ${e.cobertura}
-      Valor Anual: ${e.valoranual}
-      Seguradora: ${e.nomeseguradora}\n''',
-                ));
+        seguroMaisCaro();
         //-----------------------Seguro mais barato---------------------
 
-        apolices
-            .where((e) => e.active == true && min > e.valoranual)
-            .forEach((e) {
-          min = e.valoranual;
-          seguromin = e.nomeseguro;
-          if (min > e.valoranual) {
-            min = e.valoranual;
-            seguromin = e.nomeseguro;
-          }
-        });
-        apolices
-            .where((e) => e.valoranual == min && e.nomeseguro == seguromin)
-            .forEach((e) => print(
-                  ''' Seguro mais barato é...
-      Nome do Seguro: ${e.nomeseguro}
-      Tipo de Seguro: ${e.tiposeguro}
-      Cobertura: ${e.cobertura}
-      Valor Anual: ${e.valoranual}
-      Seguradora: ${e.nomeseguradora}\n''',
-                ));
+        seguroMaisBarato();
         break;
 
       //caso 3 do menu principal
       case 3:
-        //--------------------------valor anual por seguro----------------------
-        double sum = 0;
-        int counter = 0;
-        apolices
-            .where((j) => j.nomeseguro != null && j.active == true)
-            .forEach((j) {
-          sum = 0;
-          counter = 0;
-          print('O seguro de ${j.nomeseguro} tem um valor anual médio de:');
-          apolices
-              .where((e) => e.active == true && e.nomeseguro == j.nomeseguro)
-              .forEach((e) => {
-                    sum += e.valoranual,
-                    counter++,
-                  });
-          sum = sum / counter;
-          print('             -->$sum');
-        });
+        //--------------------------media anual por seguro----------------------
+        mediaAnualSeguro();
         break;
       case 4:
         //-----------------------apólice activas e inativas-------------------
@@ -360,38 +303,13 @@ void main() {
       ${e.toString()}\n'''));
         break;
       case 5:
-        tiposeguros.where((j) => j.tiposeguro != null).forEach((j) => {
-              print('O seguro de ${j.tiposeguro} tem as apólices: '),
-              apolices
-                  .where((e) => e.tiposeguro == j.tiposeguro)
-                  .forEach((e) => print(
-                        ''' Apólice...
-      Nome da Apolice: ${e.nomeapolice}
-      Cobertura: ${e.cobertura}
-      Valor Anual: ${e.valoranual}
-      Seguradora: ${e.nomeseguradora}
-      Tomador: ${e.nometomador}\n''',
-                      )),
-            });
+        //-----------------------apolices por tipo-------------------
+        tipoApolices();
         break;
 
       case 6:
-        //--------------------------valor anual por seguro----------------------
-        tomadores.where((j) => j.nometomador != null).forEach((j) => {
-              print('O tomador ${j.nometomador} tem as apólices: '),
-              apolices
-                  .where(
-                      (e) => e.nometomador == j.nometomador && e.active == true)
-                  .forEach((e) => print(
-                        ''' Apólice...
-      Tomador: ${e.nometomador}
-      Nome da Apolice: ${e.nomeapolice}
-      Cobertura: ${e.cobertura}
-      Valor Anual: ${e.valoranual}
-      Seguradora: ${e.nomeseguradora}
-      Segurado: ${j.tiposegurado}\n''',
-                      ))
-            });
+        //--------------------------apólices por tomador----------------------
+        apolicesTomador();
         break;
 
       case 7:
@@ -405,96 +323,18 @@ void main() {
             case 1:
               //----------------------maior e menor cobertura-----------------
               //---------------------------maior cobertura--------------------
-              double max = 0.0;
-              double min = apolices[0].valoranual;
-              String seguro = '';
-              String seguromin = apolices[0].nomeseguro;
-              apolices
-                  .where((e) => e.active == true && max < e.cobertura)
-                  .forEach((e) {
-                max = e.cobertura;
-                seguro = e.nomeseguro;
-                if (max < e.cobertura) {
-                  max = e.cobertura;
-                  seguro = e.nomeseguro;
-                }
-              });
-              apolices
-                  .where((e) => e.cobertura == max && e.nomeseguro == seguro)
-                  .forEach((e) => print(
-                        ''' Apolice com maior cobertura é...
-              Tipo de Seguro: ${e.tiposeguro}
-              Nome da Apolice: ${e.nomeapolice}
-              Cobertura: ${e.cobertura}\n''',
-                      ));
-
+              Cobertura().maiorCobertura();
               //------------------------menor cobertura------------------------
-              apolices
-                  .where((e) => e.active == true && min > e.cobertura)
-                  .forEach((e) {
-                min = e.cobertura;
-                seguromin = e.tiposeguro;
-                if (min > e.cobertura) {
-                  min = e.valoranual;
-                  seguromin = e.tiposeguro;
-                }
-              });
-              apolices
-                  .where((e) => e.cobertura == min && e.tiposeguro == seguromin)
-                  .forEach((e) => print(
-                        ''' Apolice com menor cobertura é...
-              Tipo de Seguro: ${e.tiposeguro}
-              Nome da Apolice: ${e.nomeapolice}
-              Cobertura: ${e.cobertura}\n''',
-                      ));
+              Cobertura().menorCobertura();
               break;
 
             case 2:
               //---------------------maior e menor valor anual--------------------
               //----------------------maior valor anual-----------------
-              double max = 0.0;
-              double min = apolices[0].valoranual;
-              String seguro = '';
-              String seguromin = apolices[0].tiposeguro;
-              apolices
-                  .where((e) => e.active == true && max < e.valoranual)
-                  .forEach((e) {
-                max = e.valoranual;
-                seguro = e.tiposeguro;
-                if (max < e.valoranual) {
-                  max = e.valoranual;
-                  seguro = e.tiposeguro;
-                }
-              });
-              apolices
-                  .where((e) => e.valoranual == max && e.tiposeguro == seguro)
-                  .forEach((e) => print(
-                        ''' Apolice com maior valor anual é...
-      Tipo de Seguro: ${e.tiposeguro}
-      Nome da Apólice: ${e.nomeapolice}
-      Valor Anual: ${e.valoranual}\n''',
-                      ));
+              ValorAnual().maiorValorAnual();
 
               //---------------------------menor valor anual--------------------
-              apolices
-                  .where((e) => e.active == true && min > e.valoranual)
-                  .forEach((e) {
-                min = e.valoranual;
-                seguromin = e.tiposeguro;
-                if (min > e.valoranual) {
-                  min = e.valoranual;
-                  seguromin = e.tiposeguro;
-                }
-              });
-              apolices
-                  .where(
-                      (e) => e.valoranual == min && e.tiposeguro == seguromin)
-                  .forEach((e) => print(
-                        ''' Apolice com menor valor anual é...
-      Tipo de Seguro: ${e.tiposeguro}
-      Nome da Apólice: ${e.nomeapolice}
-      Valor Anual: ${e.valoranual}\n''',
-                      ));
+              ValorAnual().menorValorAnual();
               break;
             case 3:
               double max = 0.0;
