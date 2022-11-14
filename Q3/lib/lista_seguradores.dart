@@ -4,6 +4,7 @@ import 'package:trabalho1/tomadores.dart';
 import 'package:trabalho1/tiposeguros.dart';
 
 //lista das tipos de seguros
+
 List seguradoras = [
   Seguradora(
     nomeseguradora: 'Allianz',
