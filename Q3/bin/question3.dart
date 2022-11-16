@@ -218,6 +218,6 @@ void main() {
         print('Invalid choise! Please try again.');
         break;
     }
-    //parar se for escolhido 8
+    //parar se for escolhido 9
   } while (menuprincipal != 9);
 }
