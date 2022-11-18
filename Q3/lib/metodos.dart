@@ -557,7 +557,11 @@ void totalCoberturaValorAnual() {
   seguradoras.where((j) => j.nomeseguradora != null).forEach((j) {
     double sumcobertura = 0;
     double sumvaloranual = 0;
-    apolices.where((e) => e.active == true).forEach((e) {
+    apolices
+        .where(
+      (e) => e.active == true && e.nomeseguradora == j.nomeseguradora,
+    )
+        .forEach((e) {
       sumcobertura += e.cobertura;
       sumvaloranual += e.valoranual;
     });
