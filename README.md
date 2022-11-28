@@ -14,14 +14,15 @@ dart question3.dart
 
 <p>Este trabalho foi realizado para a aprendizagem da linguagem Dart como avaliação da disciplina de Computação Móvel!</br></p>
 
+## Enunciado
+
 <p>1) Proponha um programa que teste os números inteiros do intervalo ]100;200[ e que apresente na consola a soma e média dos primos existentes naquele intervalo.</br></p>
 
 <p>2) Desenvolva um programa capaz de gerar de forma automática e aleatória números inteiros positivos, em que a quantidade de números a gerar seja sorteada entre [90;150]. Disponibilize um menu simples com opções para extrair a seguinte informação do conjunto gerado:</br>
 </br>
 &emsp;&emsp;&emsp;a. O maior e menor elemento do conjunto;</br>
 &emsp;&emsp;&emsp;b. A amplitude do conjunto;</br>
-&emsp;&emsp;&emsp;c. Uma listagem dos números ímpares </br>
-&emsp;&emsp;&emsp;&emsp;com ordenação decrescente;</br>
+&emsp;&emsp;&emsp;c. Uma listagem dos números ímpares com ordenação decrescente;</br>
 &emsp;&emsp;&emsp;d. Visualização do conjunto;</br>
 </p>
 
