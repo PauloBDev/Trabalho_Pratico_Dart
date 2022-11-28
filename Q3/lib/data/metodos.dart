@@ -252,7 +252,7 @@ class TipoSeguroVAnual {
   String seguro = '';
   String seguromin = apolices[0].tiposeguro;
   void vAnualMaior() {
-    print('-----------------Maior----------------------');
+    print('-----------------Maior valor anual Seguro----------------------');
     // MAIOR ---------------------------------------
     tiposeguros.where((j) => j.tiposeguro != null).forEach((j) => {
           max = 0.0,
@@ -287,7 +287,7 @@ class TipoSeguroVAnual {
   }
 
   void vAnualMenor() {
-    print('-----------------Menor----------------------');
+    print('-----------------Menor valor anual Seguro----------------------');
     //MENOR-----------------------------------------
     tiposeguros.where((j) => j.tiposeguro != null).forEach((j) => {
           max = 0.0,
@@ -331,7 +331,8 @@ class TipoSeguroCobertura {
   String seguromin = apolices[0].tiposeguro;
 
   void coberturaMaior() {
-    print('-----------------Maior----------------------');
+    print(
+        '-----------------Maior valor cobertura de Seguro----------------------');
     //MAIOR ------------------------------------
     tiposeguros.where((j) => j.tiposeguro != null).forEach((j) => {
           max = 0.0,
@@ -366,7 +367,8 @@ class TipoSeguroCobertura {
   }
 
   void coberturaMenor() {
-    print('-----------------Menor----------------------');
+    print(
+        '-----------------Menor valor cobertura de Seguro----------------------');
     tiposeguros.where((j) => j.tiposeguro != null).forEach((j) => {
           max = 0.0,
           min = apolices[0].valoranual,
@@ -409,7 +411,8 @@ class TipoSeguradora {
   String seguradoramin = apolices[0].nomeseguradora;
 
   void vAnualMaior() {
-    print('-----------------Maior----------------------');
+    print(
+        '-----------------Maior valor anual do Tipo de Seguradora----------------------');
     // maior valor anual ------------------------------------
     seguradoras.where((j) => j.nomeseguradora != null).forEach((j) => {
           max = 0.0,
@@ -442,7 +445,8 @@ class TipoSeguradora {
       Valor Anual: ${e.valoranual}\n''',
                   ))
         });
-    print('-----------------Menor----------------------');
+    print(
+        '-----------------Menor valor anual do Tipo de Seguradora----------------------');
     // menor valor anual ------------------------------------
     seguradoras.where((j) => j.nomeseguradora != null).forEach((j) => {
           max = 0.0,
@@ -481,7 +485,8 @@ class TipoSeguradora {
   void vAnualMenor() {}
 
   void coberturaMaior() {
-    print('-----------------Maior----------------------');
+    print(
+        '-----------------Maior valor cobertura do Tipo de Seguradora----------------------');
     //maior cobertura --------------------------------------------------
     seguradoras.where((j) => j.nomeseguradora != null).forEach((j) => {
           max = 0.0,
@@ -514,7 +519,8 @@ class TipoSeguradora {
       Cobertura: ${e.cobertura}\n''',
                   ))
         });
-    print('-----------------Menor----------------------');
+    print(
+        '-----------------Menor valor cobertura do Tipo de Seguradora----------------------');
     //menor cobertura --------------------------------------------------
     seguradoras.where((j) => j.nomeseguradora != null).forEach((j) => {
           max = 0.0,
