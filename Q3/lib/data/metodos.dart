@@ -11,7 +11,8 @@ void menuPrincipal() {
   print('6. Apólices por tomador');
   print('7. Análise das coberturas e valor anual');
   print('8. Adicionar elementos.');
-  print('9. Exit.\n');
+  print('9. Remover elementos.');
+  print('0. Exit.\n');
 }
 
 void menuDetalhes() {
@@ -46,6 +47,13 @@ void menuAdicionar() {
   print('3. Tomadores.');
   print('4. Apólices.');
   print('5. <-- Voltar.\n');
+}
+
+void menuRemover() {
+  print('-------------------Adicionar----------------------- ');
+  print('\n1. Seguradora.');
+  print('2. Tipos de Seguros.');
+  print('3. <-- Voltar.\n');
 }
 
 void seguroMaisCaro() {

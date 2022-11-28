@@ -3,6 +3,7 @@ import 'package:trabalho1/modules/seguradoras.dart';
 import 'package:trabalho1/data/metodos.dart';
 import 'package:trabalho1/data/lista_seguradores.dart';
 import 'package:trabalho1/data/adicionar.dart';
+import 'package:trabalho1/data/remover.dart';
 
 void main() {
   //criação de um default com cascade notation
@@ -17,6 +18,7 @@ void main() {
   int detalhes = 0;
   int analise = 0;
   int adicionar = 0;
+  int remover = 0;
 
   do {
     //pushar o menu
@@ -207,9 +209,28 @@ void main() {
           }
         } while (adicionar != 5);
         break;
-
-      //exit
       case 9:
+        do {
+          menuRemover();
+
+          remover = int.parse(stdin.readLineSync()!);
+          print('\n');
+
+          switch (remover) {
+            case 1:
+              Remover().removerSeguradora();
+              break;
+            case 2:
+              Remover().removerTipodeSeguro();
+              break;
+            case 3:
+              print('\n');
+              break;
+          }
+        } while (remover != 3);
+        break;
+      //exit
+      case 0:
         print('                  Have a Good Day!');
         print("\n");
         break;
@@ -219,5 +240,5 @@ void main() {
         break;
     }
     //parar se for escolhido 9
-  } while (menuprincipal != 9);
+  } while (menuprincipal != 0);
 }
