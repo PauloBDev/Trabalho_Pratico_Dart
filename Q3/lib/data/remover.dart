@@ -1,13 +1,8 @@
 import 'dart:io';
-import 'package:trabalho1/modules/seguradoras.dart';
-import 'package:trabalho1/modules/apolices.dart';
-import 'package:trabalho1/modules/tomadores.dart';
-import 'package:trabalho1/modules/tiposeguros.dart';
 import 'package:trabalho1/data/lista_seguradores.dart';
 
-import '../exceptions/allowed_age.dart';
-
 class Remover {
+  // remover seguradoras
   void removerSeguradora() {
     print('Nome da Seguradora:');
     String? snome = stdin.readLineSync();
@@ -20,6 +15,7 @@ class Remover {
     }
   }
 
+  //remover tipo de seguros
   void removerTipodeSeguro() {
     print('Nome do Tipo de Seguro:');
     String? nomeTipoSeguro = stdin.readLineSync();

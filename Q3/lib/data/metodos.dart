@@ -1,7 +1,7 @@
 import 'package:trabalho1/data/lista_seguradores.dart';
 
 void menuPrincipal() {
-  //menu
+  //menu principal
   print('\n-------------------Surpresas Existem!!----------------------- ');
   print('\n1. Detalhes sobre as várias areas.');
   print('2. Qual é o seguro mais barato e o mais caro?');
@@ -15,6 +15,7 @@ void menuPrincipal() {
   print('0. Exit.\n');
 }
 
+//meno da primeira opção, para ver os detalhes das entidades
 void menuDetalhes() {
   //menu 2
   print('-------------------Detalhes----------------------- ');
@@ -26,6 +27,7 @@ void menuDetalhes() {
   print('6. <-- Voltar.\n');
 }
 
+//menu da analise dos valores associados do problema
 void menuAnalise() {
   print('---------- Analise Coberturas e Valor anual -------------- ');
   print('1. Maior e menor cobertura e o seu tipo de seguro.');
@@ -40,6 +42,7 @@ void menuAnalise() {
   print('6. <-- Voltar.\n');
 }
 
+//menu para escolher o que adicionar
 void menuAdicionar() {
   print('-------------------Adicionar----------------------- ');
   print('\n1. Seguradora.');
@@ -49,6 +52,10 @@ void menuAdicionar() {
   print('5. <-- Voltar.\n');
 }
 
+//menu para escolher o que remover, apenas usamos estes dois porque
+//fora desses não vimos utilidade visto que se queremos eliminar tomadores
+//eles teram sempre apólice no sentido que só entram em apliceção se
+//ouver já uma apólice dada ao tomador
 void menuRemover() {
   print('-------------------Adicionar----------------------- ');
   print('\n1. Seguradora.');
@@ -56,6 +63,7 @@ void menuRemover() {
   print('3. <-- Voltar.\n');
 }
 
+//verificar o seguro mais caro
 void seguroMaisCaro() {
   print('-----------------Mais Caro----------------------');
   double max = 0.0;
@@ -82,6 +90,7 @@ void seguroMaisCaro() {
           ));
 }
 
+//verificar o seguro mais barato
 void seguroMaisBarato() {
   print('-----------------Mais barato----------------------');
   double max = 0.0;
@@ -108,6 +117,7 @@ void seguroMaisBarato() {
           ));
 }
 
+//mostrar para cada tipo de seguro as apólices
 void tipoApolices() {
   tiposeguros.where((j) => j.tiposeguro != null).forEach((j) => {
         print('O seguro de ${j.tiposeguro} tem as apólices: '),
@@ -124,6 +134,7 @@ void tipoApolices() {
       });
 }
 
+//media do valor anual por seguro
 void mediaAnualSeguro() {
   print('-----------------Média----------------------');
   double sum = 0;
@@ -143,12 +154,13 @@ void mediaAnualSeguro() {
   });
 }
 
+//calcular a maior e menor cobertura
 class Cobertura {
   double max = 0.0;
   double min = apolices[0].valoranual;
   String seguro = '';
   String seguromin = apolices[0].nomeseguro;
-
+  //calcular a maior cobertura
   void maiorCobertura() {
     print('-----------------Maior----------------------');
     apolices.where((e) => e.active == true && max < e.cobertura).forEach((e) {
@@ -169,6 +181,7 @@ class Cobertura {
             ));
   }
 
+  //calcular a menor cobertura
   void menorCobertura() {
     print('-----------------Menor----------------------');
     apolices.where((e) => e.active == true && min > e.cobertura).forEach((e) {
@@ -190,6 +203,7 @@ class Cobertura {
   }
 }
 
+//mostrar as apólices por tomador
 void apolicesTomador() {
   tomadores.where((j) => j.nometomador != null).forEach((j) => {
         print('O tomador ${j.nometomador} tem as apólices: '),
@@ -207,11 +221,13 @@ void apolicesTomador() {
       });
 }
 
+//calcular o maior e menor valor anual
 class ValorAnual {
   double max = 0.0;
   double min = apolices[0].valoranual;
   String seguro = '';
   String seguromin = apolices[0].tiposeguro;
+  //calcular o maior valor anual
   void maiorValorAnual() {
     print('-----------------Maior----------------------');
     apolices.where((e) => e.active == true && max < e.valoranual).forEach((e) {
@@ -232,6 +248,7 @@ class ValorAnual {
             ));
   }
 
+  //calcular o menor valor anual
   void menorValorAnual() {
     print('-----------------Menor----------------------');
     apolices.where((e) => e.active == true && min > e.valoranual).forEach((e) {
@@ -332,7 +349,7 @@ class TipoSeguroVAnual {
 }
 
 class TipoSeguroCobertura {
-  //cobertura por tipo de seguro--------------------------------
+  //cobertura por tipo de seguro
   double max = 0.0;
   double min = apolices[0].valoranual;
   String seguro = '';
