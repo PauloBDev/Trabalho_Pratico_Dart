@@ -1,4 +1,4 @@
-import 'package:trabalho1/seguradoras.dart';
+import 'package:trabalho1/modules/seguradoras.dart';
 
 import 'seguradoras.dart';
 

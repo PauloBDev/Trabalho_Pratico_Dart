@@ -1,8 +1,8 @@
 import 'dart:io';
-import 'package:trabalho1/seguradoras.dart';
-import 'package:trabalho1/metodos.dart';
-import 'package:trabalho1/lista_seguradores.dart';
-import 'package:trabalho1/adicionar.dart';
+import 'package:trabalho1/modules/seguradoras.dart';
+import 'package:trabalho1/data/metodos.dart';
+import 'package:trabalho1/data/lista_seguradores.dart';
+import 'package:trabalho1/data/adicionar.dart';
 
 void main() {
   //criação de um default com cascade notation

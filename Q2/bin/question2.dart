@@ -18,11 +18,11 @@ void main() {
     //case
     switch (N) {
       case 1: //Maior e Menor
-        var largest = // número maior
+        int largest = // número maior
             list.reduce(
           (current, next) => current > next ? current : next,
         );
-        var smallest = // número menos
+        int smallest = // número menos
             list.reduce(
           (current, next) => current < next ? current : next,
         );
@@ -32,10 +32,20 @@ void main() {
         break;
 
       case 2: // Tamanho / Quantidade
-        print("There are ${list.length} numbers that were created.");
+        print("There are ${list.length} numbers created.");
         break;
 
       case 3: // Impares decrescentes
+
+        // list.forEach(            forEach aprendido na pergunta 3
+        //   (e) {
+        //     if (e.isOdd) {
+        //       // verificar se for impar
+        //       odd.add(e); // adicionar se for
+        //     }
+        //   },
+        // );
+
         for (int j in list) {
           // correr a lista
           if (j.isOdd) {
@@ -44,11 +54,16 @@ void main() {
           }
         }
         odd.sort((b, a) => a.compareTo(b)); // organizar por decrescente
+
+        // odd.forEach((e) => print(e)); forEach aprendido na pergunta 3
+
         for (int i in odd) {
           print(i);
         }
         break;
       case 4: // ver tudo
+        // list.forEach((e) => print(e)); utilização de um .forEach
+        //                                    aprendido apenas na pergunta 3
         for (int i in list) {
           print(i);
         }

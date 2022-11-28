@@ -1,4 +1,4 @@
-import 'package:trabalho1/lista_seguradores.dart';
+import 'package:trabalho1/data/lista_seguradores.dart';
 
 void menuPrincipal() {
   //menu

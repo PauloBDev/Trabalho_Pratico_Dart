@@ -1,9 +1,11 @@
 import 'dart:io';
-import 'package:trabalho1/seguradoras.dart';
-import 'package:trabalho1/apolices.dart';
-import 'package:trabalho1/tomadores.dart';
-import 'package:trabalho1/tiposeguros.dart';
-import 'package:trabalho1/lista_seguradores.dart';
+import 'package:trabalho1/modules/seguradoras.dart';
+import 'package:trabalho1/modules/apolices.dart';
+import 'package:trabalho1/modules/tomadores.dart';
+import 'package:trabalho1/modules/tiposeguros.dart';
+import 'package:trabalho1/data/lista_seguradores.dart';
+
+import '../exceptions/allowed_age.dart';
 
 class Adicionar {
   //---------------------------adicionar seguradora--------------------
@@ -54,16 +56,21 @@ class Adicionar {
     String? seguradonome = stdin.readLineSync();
     print('Tipo de Segurado:');
     String? seguradotipo = stdin.readLineSync();
-    tomadores.add(Tomador(
-      nomeseguradora: tomadorSnome,
-      nomeseguro: tomadorSeguronome,
-      tiposeguro: tomadorSegurotipo,
-      nometomador: tomadornome,
-      muradatomador: tomadormurada,
-      idadetomador: tomadoridade,
-      nomesegurado: seguradonome,
-      tiposegurado: seguradotipo,
-    ));
+    try {
+      //tentativa de adicionar uma exception
+      tomadores.add(Tomador(
+        nomeseguradora: tomadorSnome,
+        nomeseguro: tomadorSeguronome,
+        tiposeguro: tomadorSegurotipo,
+        nometomador: tomadornome,
+        muradatomador: tomadormurada,
+        idadetomador: tomadoridade,
+        nomesegurado: seguradonome,
+        tiposegurado: seguradotipo,
+      ));
+    } on AllowedAgeException catch (e) {
+      print(e.errorMessage());
+    }
   }
 
   void adicionarApolices() {

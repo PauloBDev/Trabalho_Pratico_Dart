@@ -1,5 +1,5 @@
-import 'package:trabalho1/tiposeguros.dart';
-import 'package:trabalho1/tomadores.dart';
+import 'package:trabalho1/modules/tiposeguros.dart';
+import 'package:trabalho1/modules/tomadores.dart';
 
 class Apolices extends Tomador {
   String? nomeapolice;

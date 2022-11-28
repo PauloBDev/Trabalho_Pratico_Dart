@@ -1,4 +1,5 @@
-import 'package:trabalho1/tiposeguros.dart';
+import 'package:trabalho1/exceptions/allowed_age.dart';
+import 'package:trabalho1/modules/tiposeguros.dart';
 
 import 'apolices.dart';
 
@@ -31,5 +32,11 @@ class Tomador extends TipoDeSeguro {
       Nome: $nometomador
       Murada: $muradatomador 
       Idade: $idadetomador''';
+  }
+}
+
+void add(Tomador tomadores) {
+  if (tomadores.idadetomador! < 18) {
+    throw AllowedAgeException('data/adicionar.dart');
   }
 }
